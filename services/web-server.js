@@ -14,8 +14,12 @@ function initialize() {
     httpServer = http.createServer(app);
     app.use(morgan('combined'));
     app.use('/api', router);
+    app.use(function(req, res, next) {
+      res.header("Access-Control-Allow-Origin", "*");
+      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+      next();
+    });
 
-    
 
     httpServer.listen(webServerConfig.port)
       .on('listening', () => {
@@ -38,11 +42,10 @@ function close() {
         reject(err);
         return;
       }
- 
+
       resolve();
     });
   });
 }
- 
-module.exports.close = close;
 
+module.exports.close = close;
