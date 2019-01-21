@@ -1,13 +1,13 @@
-const employees = require('../db_apis/series.js');
- 
+const series = require('../db_apis/series.js');
+
 async function get(req, res, next) {
   try {
     const context = {};
- 
+
     context.id = parseInt(req.params.id, 10);
- 
-    const rows = await employees.find(context);
- 
+
+    const rows = await series.find(context);
+
     if (req.params.id) {
       if (rows.length === 1) {
         res.status(200).json(rows[0]);
@@ -21,5 +21,5 @@ async function get(req, res, next) {
     next(err);
   }
 }
- 
+
 module.exports.get = get;

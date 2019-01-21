@@ -1,14 +1,14 @@
-const employees = require('../db_apis/serie_titres.js');
+const series = require('../db_apis/serie_titres.js');
 
 async function get(req, res, next) {
   try {
     const context = {};
 
-    context.id = req.params.id, 10;
+    context.titre = req.params.titre;
 
-    const rows = await employees.find(context);
+    const rows = await series.find(context);
 
-    if (req.params.id) {
+    if (req.params.titre) {
       if (rows.length === 1) {
         res.status(200).json(rows[0]);
       } else {

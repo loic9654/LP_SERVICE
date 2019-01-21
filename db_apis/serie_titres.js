@@ -8,11 +8,11 @@ async function find(context) {
   const binds = {};
 
 
-  if (context.id) {
-    binds.Titre = `\'`+ context.id + `\'`;
+  if (context.titre) {
+    binds.titre = context.titre;
 
-    query += `\n where Titre = :Titre`;
-    
+    query += `\nwhere titre = :titre`;
+
   }
 
   const result = await database.simpleExecute(query, binds);
