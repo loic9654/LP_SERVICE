@@ -19,13 +19,6 @@ function initialize() {
 
     var bodyParser = require('body-parser');
 
-    app.use(function(req, res, next) {
-      res.header("Access-Control-Allow-Origin", "*");
-      res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-      next();
-    });
-
-
     //enables cors
     app.use(cors({
       'allowedHeaders': ['sessionId', 'Content-Type'],
@@ -35,7 +28,7 @@ function initialize() {
       'preflightContinue': false
     }));
 
-    require('./router/index')(app);
+    //require('./router/index')(app);
 
     httpServer.listen(webServerConfig.port)
       .on('listening', () => {
