@@ -4,6 +4,7 @@ const webServerConfig = require('../config/web-server.js');
 const router = require('./router.js');
 const morgan = require('morgan');
 const database = require('./database.js');
+const cors = require('cors');
 
 
 let httpServer;
@@ -14,6 +15,8 @@ function initialize() {
     httpServer = http.createServer(app);
     app.use(morgan('combined'));
     app.use('/api', router);
+    app.use(cors());
+
     app.use(function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
