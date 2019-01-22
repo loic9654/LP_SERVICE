@@ -17,12 +17,25 @@ function initialize() {
     app.use('/api', router);
     app.use(cors());
 
+    var bodyParser = require('body-parser');
+
     app.use(function(req, res, next) {
       res.header("Access-Control-Allow-Origin", "*");
       res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
       next();
     });
 
+
+    //enables cors
+    app.use(cors({
+      'allowedHeaders': ['sessionId', 'Content-Type'],
+      'exposedHeaders': ['sessionId'],
+      'origin': '*',
+      'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+      'preflightContinue': false
+    }));
+
+    require('./router/index')(app);
 
     httpServer.listen(webServerConfig.port)
       .on('listening', () => {
