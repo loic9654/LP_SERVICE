@@ -4,7 +4,7 @@ const webServerConfig = require('../config/web-server.js');
 const router = require('./router.js');
 const morgan = require('morgan');
 const database = require('./database.js');
-const cors = require('cors');
+const bodyParser = require('../node_modules/body-parser');
 
 
 let httpServer;
@@ -12,14 +12,14 @@ let httpServer;
 function initialize() {
   return new Promise((resolve, reject) => {
     const app = express();
+   
     httpServer = http.createServer(app);
     app.use(morgan('combined'));
-    app.use('/api', router);
-
-    app.use((request,response,next) => {
-      response.header("Access-Control-Allow-origin", "*");
-      next()
-    })
+		app.use(bodyParser.urlencoded({extended: false}));
+		app.use(bodyParser.json());    
+		app.use('/api', router);
+		
+    
 
 
 
