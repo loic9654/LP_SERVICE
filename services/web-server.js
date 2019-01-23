@@ -12,19 +12,25 @@ let httpServer;
 function initialize() {
   return new Promise((resolve, reject) => {
     const app = express();
-   
-    httpServer = http.createServer(app);
+
     app.use(morgan('combined'));
-		app.use(bodyParser.urlencoded({extended: false}));
-		app.use(bodyParser.json());    
-		app.use('/api', router);
-		
-    
+    app.use(bodyParser.urlencoded({extended: false}));
+    app.use(bodyParser.json());
 
+    app.use((req,res,next) => {
+      res.header('Access-Control-Allow-Origin', '*');
+      res.header('Access-Control-Allow-Headers', 'origin,X-Requested-With,Content-Type,accept, Authorization');
+    });
+    if(req.method === 'OPTIONS') {
+      res.header('Access-Control-Allow-Methods', 'PUT, POST, PATCH, DELETE,GET');
+      return res.status(200).json();
+    }
 
+    app.use('/api', router);
 
     //require('./router/index')(app);
 
+    httpServer = http.createServer(app);
     httpServer.listen(webServerConfig.port)
       .on('listening', () => {
         console.log(`Web server listening on localhost:${webServerConfig.port}`);
