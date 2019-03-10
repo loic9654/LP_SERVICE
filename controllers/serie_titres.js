@@ -5,7 +5,7 @@ async function get(req, res, next) {
     const context = {};
 
     context.titre = req.params.titre;
-    console.debug('------titre : '   + req.params);
+    console.debug('------titre : '   + req.params.titre);
     const rows = await series.find(context);
 
     if (req.params.titre) {
