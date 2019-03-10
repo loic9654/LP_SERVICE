@@ -19,11 +19,16 @@ async function find(context) {
 
     for (var i = 0; i < mots.length; i++) {
       binds.titre = mots[i];
-      if(i == mots.length - 1 || mots.length == 1 ){
-        query += `\nwhere D.Mot = :titre`
+      if(mots.length == 1 ){
+        query += `\n(where D.Mot = :titre)`
+
+      }else if ( i == mots.length - 1 ) {
+
+        query += `\n(D.Mot = :titre)`
+
 
       }else{
-        query += `\nwhere D.Mot = :titre or`
+        query += `\nwhere (D.Mot = :titre) or`
 
       }
     }
