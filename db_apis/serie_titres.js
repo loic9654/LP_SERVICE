@@ -34,7 +34,7 @@ async function find(context) {
     }
     query += `order by 3 desc`;
 
-
+    console.log(query);
 
   }
 
