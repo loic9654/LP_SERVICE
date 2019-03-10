@@ -1,7 +1,7 @@
 const express = require('express');
 const router = new express.Router();
 const series = require('../controllers/series.js');
-const serie_titres = require('../controllers/serie_titres.js');
+const serieTitres = require('../controllers/serie_titres.js');
 
 
 router.route('/series/')
@@ -9,7 +9,7 @@ router.route('/series/')
 
 
 router.route('/series/:titre?')
-   .get(serie_titres.get);
+   .get(serieTitres.get);
 
 
 module.exports = router;
