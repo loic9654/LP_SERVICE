@@ -26,9 +26,13 @@ async function find(context) {
 
         query += `\n(D.Mot = :titre)`
 
+      } else if (i == 0) {
+
+        query += `\nwhere (D.Mot = :titre) or`
+
 
       }else{
-        query += `\nwhere (D.Mot = :titre) or`
+        query += `\n(D.Mot = :titre) or`
 
       }
     }
