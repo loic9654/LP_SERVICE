@@ -1,7 +1,7 @@
 const database = require('../services/database.js');
 
 const baseQuery =
- `SELECT S.ID_Serie,S.Titre,(P.TF * D.IDF)
+ `SELECT S.ID_Serie,S.Titre,(P.TF * D.IDF) as score
 from Dictionnaire D
 inner join frequence p
 on D.ID_Mot = P.ID_Mot
