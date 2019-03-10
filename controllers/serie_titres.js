@@ -9,11 +9,13 @@ async function get(req, res, next) {
     const rows = await series.find(context);
 
     if (req.params.titre) {
-      if (rows.length === 1) {
+	res.status(200).json(rows);
+            
+	/*if (rows.length === 1) {
         res.status(200).json(rows[0]);
       } else {
         res.status(404).end();
-      }
+      }*/
     } else {
       res.status(200).json(rows);
     }
