@@ -15,9 +15,21 @@ async function find(context) {
 
 
   if (context.titre) {
-    binds.titre = context.titre;
+    mots = context.titre.split(" ");
 
-    query += `\nwhere D.Mot = :titre order by 3 desc`;
+    for (var i = 0; i < mots.length; i++) {
+      binds.titre = mots[i];
+      if(i == mots.length - 1 || mots.length == 1 ){
+        query += `\nwhere D.Mot = :titre`
+
+      }else{
+        query += `\nwhere D.Mot = :titre or`
+
+      }
+    }
+    query += `order by 3 desc`;
+
+
 
   }
 
