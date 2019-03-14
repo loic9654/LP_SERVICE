@@ -10,9 +10,9 @@ router.route('/series/')
 
 
 router.route('/series/:titre?')
-   .get(serieTitres.get);
+  .get(serieTitres.get);
 
-   router.route('/users/')
-      .get(user.getAll);
+router.route('/users/')
+  .get(user.getAll);
 
 module.exports = router;

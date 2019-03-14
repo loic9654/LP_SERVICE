@@ -8,11 +8,7 @@ async function find(context) {
   const binds = {};
 
 
-  if (context.titre) {
 
-    console.log(query);
-
-  }
 
   const result = await database.simpleExecute(query, binds);
 
