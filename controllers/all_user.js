@@ -22,9 +22,10 @@ function getUseFromReq(req) {
 }
 
 async function post(req, res, next) {
-  console.log("test ------=====> " + user.firstName);
+  console.log("BANANANANANANA");
+  console.log("test ------=====> " + req.body);
   try {
-    let user = getUseFromReq(req)
+    let user = getUseFromReq(req);
     res.status(201).json(req);
   } catch (err) {
     next(err);
