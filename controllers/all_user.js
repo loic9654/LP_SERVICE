@@ -12,10 +12,18 @@ async function get(req, res, next) {
   }
 }
 
+function getUseFromReq(req) {
+  const user = {
+    firstName: req.body.firstName,
+    lastName:  req.body.lastName,
+    username:  req.body.username,
+    password:  req.body.password
+  };
 
 async function post(req, res, next) {
   try {
-    console.log("test ------=====> " + req);
+    let user = getUseFromReq(req)
+    console.log("test ------=====> " + user.firstName);
     res.status(201).json(req);
   } catch (err) {
     next(err);
