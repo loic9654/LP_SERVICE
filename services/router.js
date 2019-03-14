@@ -15,4 +15,9 @@ router.route('/series/:titre?')
 router.route('/users/')
   .get(user.get);
 
+router.route('/users/register')
+  .post(user.post);
+
+
+
 module.exports = router;
