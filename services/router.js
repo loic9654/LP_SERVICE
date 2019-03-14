@@ -8,7 +8,6 @@ const user = require('../controllers/all_user.js');
 router.route('/series/')
   .get(series.get);
 
-
 router.route('/series/:titre?')
   .get(serieTitres.get);
 
@@ -17,7 +16,5 @@ router.route('/users/')
 
 router.route('/users/register')
   .post(user.post);
-
-
 
 module.exports = router;
