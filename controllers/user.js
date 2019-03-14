@@ -1,11 +1,11 @@
-const series = require('../db_apis/serie_titres.js');
+const series = require('../db_apis/user.js');
 
-async function get(req, res, next) {
+async function getAll(req, res, next) {
   try {
     const context = {};
 
     context.titre = req.params.titre;
-    //console.debug('------titre : '   + req.params.titre);
+    console.debug('------titre : '   + req.params.titre);
     const rows = await series.find(context);
 
     if (req.params.titre) {
