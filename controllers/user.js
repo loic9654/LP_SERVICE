@@ -7,7 +7,7 @@ async function get(req, res, next) {
     const rows = await series.find(context);
 
 
-      res.status(200).json(rows[0]);
+      res.status(200).json(rows);
 
   } catch (err) {
     next(err);
