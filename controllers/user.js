@@ -14,4 +14,4 @@ async function get(req, res, next) {
   }
 }
 
-module.exports.get = getAll;
+module.exports.get = get;
