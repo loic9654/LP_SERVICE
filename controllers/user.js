@@ -24,4 +24,4 @@ async function getAll(req, res, next) {
   }
 }
 
-module.exports.get = get;
+module.exports.get = getAll;
