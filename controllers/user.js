@@ -7,7 +7,7 @@ async function getAll(req, res, next) {
     const rows = await series.find(context);
 
 
-      res.status(200).json(rows);
+      res.status(200).json(rows[0]);
 
   } catch (err) {
     next(err);
