@@ -13,6 +13,6 @@ router.route('/series/:titre?')
   .get(serieTitres.get);
 
 router.route('/users/')
-  .get(user.getAll);
+  .get(user.get);
 
 module.exports = router;
