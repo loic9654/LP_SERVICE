@@ -19,6 +19,7 @@ function getUseFromReq(req) {
     username:  req.body.username,
     password:  req.body.password
   };
+}
 
 async function post(req, res, next) {
   try {
