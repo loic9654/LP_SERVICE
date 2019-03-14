@@ -22,11 +22,12 @@ function getUseFromReq(req) {
 }
 
 async function post(req, res, next) {
-  console.log("BANANANANANANA");
-  console.log("test ------=====> " + req.body);
+  console.log('BANANANANANANA');
+  console.log('test ------=====> ' + req.body.firstName);
   try {
     let user = getUseFromReq(req);
-    res.status(201).json(req);
+    user = await all_user.create(employee);
+    res.status(201).json(user);
   } catch (err) {
     next(err);
   }
