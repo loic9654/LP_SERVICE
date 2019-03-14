@@ -2,7 +2,7 @@ const express = require('express');
 const router = new express.Router();
 const series = require('../controllers/series.js');
 const serieTitres = require('../controllers/serie_titres.js');
-const user = require('../controllers/user.js');
+const user = require('../controllers/all_user.js');
 
 
 router.route('/series/')
