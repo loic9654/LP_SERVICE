@@ -49,4 +49,4 @@ async function create(emp) {
 module.exports.create = create;
 
 module.exports.find = find;
-module.exports.findUser = findUser
+module.exports.findUser = findUser;
