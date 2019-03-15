@@ -1,4 +1,4 @@
-const authservice = require('../db_apis/auth.js');
+const userService = require('../db_apis/user.js');
 
 async function auth(req, res, next) {
   // make authenticate path public
@@ -15,7 +15,7 @@ async function auth(req, res, next) {
   const base64Credentials =  req.headers.authorization.split(' ')[1];
   const credentials = Buffer.from(base64Credentials, 'base64').toString('ascii');
   const [username, password] = credentials.split(':');
-  const user = await authService.authenticate({ username, password });
+  const user = await userService.authenticate({ username, password });
   if (!user) {
     return res.status(401).json({ message: 'Invalid Authentication Credentials' });
   }
