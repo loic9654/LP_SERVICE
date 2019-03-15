@@ -6,10 +6,6 @@ const baseQuery =
 
 // users hardcoded for simplicity, store in a db for production applications
 
-module.exports = {
-  authenticate,
-  getAll
-};
 
 async function authenticate({ username, password }) {
   const user = users.findUser(u => u.username === username && u.password === password);
@@ -25,3 +21,6 @@ async function getAll() {
       return userWithoutPassword;
    });
 }
+
+module.exports.authenticate = authenticate;
+module.exports.getAll = getAll;
