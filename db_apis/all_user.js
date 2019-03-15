@@ -10,6 +10,16 @@ async function find(context) {
   return result.rows;
 }
 
+async function findUser(context) {
+  const binds = {};
+  bind.username = context.username;
+  bind.password = context.password;
+  let query = baseQuery + ` where ID_USER = :username and MOT_DE_PASSE = :password`;
+
+  const result = await database.simpleExecute(query, binds);
+  return result.rows;
+}
+
 const createSql =
  `insert into utilisateur (
     ID_USER,
