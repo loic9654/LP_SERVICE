@@ -1,5 +1,7 @@
 const database = require('../services/database.js');
 
+console.log('allllll user arrrre herrre');
+
 const baseQuery =
  `SELECT * from Utilisateur`
 

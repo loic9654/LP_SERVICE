@@ -1,5 +1,8 @@
 const users = require('../db_apis/all_user.js');
 
+console.log('allllll user arrrre herrre controlers');
+
+
 async function get(req, res, next) {
   try {
     const context = {};
