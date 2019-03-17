@@ -11,10 +11,12 @@ async function find(context) {
 }
 
 async function findUser(context) {
+  console.log("findUser");
+  console.log(context.username);
   const binds = {};
   bind.username = context.username;
   bind.password = context.password;
-  let query = baseQuery + ` where ID_USER = :username and MOT_DE_PASSE = :password`;
+  let query = baseQuery + ` where ID_USER = 1 and MOT_DE_PASSE = 'toto'`;
 
   const result = await database.simpleExecute(query, binds);
   return result.rows;
