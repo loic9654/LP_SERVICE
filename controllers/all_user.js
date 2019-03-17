@@ -1,10 +1,10 @@
-const series = require('../db_apis/all_user.js');
+const users = require('../db_apis/all_user.js');
 
 async function get(req, res, next) {
   try {
     const context = {};
 
-    const rows = await series.find(context);
+    const rows = await users.find(context);
 
     res.status(200).json(rows);
   } catch (err) {
@@ -23,14 +23,14 @@ function getUseFromReq(req) {
 
 async function post(req, res, next) {
   console.log('BANANANANANANA user posted');
-  //console.log('test ------=====> ' + req.body.firstName);
-/*try {
+
+  try {
     let user = getUseFromReq(req);
-    user = await all_user.create(employee);
+    user = await users.create(employee);
     res.status(201).json(user);
   } catch (err) {
     next(err);
-  }*/
+  }
 }
 
 module.exports.post = post;
