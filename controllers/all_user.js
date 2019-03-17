@@ -4,6 +4,7 @@ console.log('allllll user arrrre herrre controlers');
 
 
 async function get(req, res, next) {
+  console.log("get all user");
   try {
     const context = {};
 
@@ -16,6 +17,7 @@ async function get(req, res, next) {
 }
 
 function getUseFromReq(req) {
+  console.log("extract user from form");
   const user = {
     firstName: req.body.firstName,
     lastName:  req.body.lastName,

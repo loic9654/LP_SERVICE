@@ -1,11 +1,12 @@
 const database = require('../services/database.js');
 
-console.log('allllll user arrrre herrre');
+console.log('allllll user arrrre herrre dbapis');
 
 const baseQuery =
  `SELECT * from Utilisateur`
 
 async function find(context) {
+  console.log("find");
   let query = baseQuery;
   const binds = {};
   const result = await database.simpleExecute(query, binds);
