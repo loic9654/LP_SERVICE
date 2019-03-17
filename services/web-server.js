@@ -5,7 +5,7 @@ const router = require('./router.js');
 const morgan = require('morgan');
 const database = require('./database.js');
 const bodyParser = require('../node_modules/body-parser');
-const jwt = require('controllers/jwtvalidator');
+const jwt = require('../controllers/jwtvalidator');
 
 let httpServer;
 
