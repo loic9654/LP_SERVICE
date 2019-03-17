@@ -7,12 +7,15 @@ const database = require('./database.js');
 const bodyParser = require('../node_modules/body-parser');
 const jwt = require('../controllers/jwtvalidator');
 const errorHandler = require('../services/errorHandler');
+const cors = require('cors');
+
 let httpServer;
 
 function initialize() {
   return new Promise((resolve, reject) => {
     const app = express();
 
+    app.use(cors());
     app.use(morgan('combined'));
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
