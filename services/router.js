@@ -18,6 +18,6 @@ router.route('/users/')
 
 router.route('/users/register').post(user.post);
 
-//router.route('/users/authenticate').post(auth.get);
+//router.route('/users/authenticate').post(auth.authenticate);
 
 module.exports = router;

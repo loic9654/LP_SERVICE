@@ -32,10 +32,9 @@ async function post(req, res, next) {
 
   try {
     let user = getUseFromReq(req);
-    res.status(200)
 
-    //user = await users.create(employee);
-    //res.status(201).json(user);
+    user = await users.create(employee);
+    res.status(201).json(user);
   } catch (err) {
     next(err);
   }

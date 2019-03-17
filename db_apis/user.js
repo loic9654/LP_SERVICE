@@ -1,5 +1,5 @@
 const users = require('../db_apis/all_user.js');
-
+const jwt = require('jsonwebtoken');
 
 const baseQuery =
  `SELECT * from Utilisateur`;
@@ -8,11 +8,15 @@ const baseQuery =
 
 
 async function authenticate({ username, password }) {
-  const user = users.findUser(u => u.username === username && u.password === password);
-  if (user) {
-    const { password, ...userWithoutPassword } = user;
-    return userWithoutPassword;
-  }
+    const user = users.find(u => u.username === username && u.password === password);
+    if (user) {
+        const token = jwt.sign({ sub: user.id }, config.secret);
+        const { password, ...userWithoutPassword } = user;
+        return {
+            ...userWithoutPassword,
+            token
+        };
+    }
 }
 
 async function getAll() {
