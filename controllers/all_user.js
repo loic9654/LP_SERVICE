@@ -22,7 +22,8 @@ function getUseFromReq(req) {
     firstName: req.body.firstName,
     lastName:  req.body.lastName,
     username:  req.body.username,
-    password:  req.body.password
+    password:  req.body.password,
+    token: 'testToken'
   };
 }
 
