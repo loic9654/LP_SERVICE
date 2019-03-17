@@ -6,7 +6,7 @@ const morgan = require('morgan');
 const database = require('./database.js');
 const bodyParser = require('../node_modules/body-parser');
 const jwt = require('../controllers/jwtvalidator');
-const errorHandler = require('services/errorHandler');
+const errorHandler = require('../services/errorHandler');
 let httpServer;
 
 function initialize() {
