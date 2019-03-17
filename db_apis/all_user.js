@@ -44,12 +44,12 @@ async function create(emp) {
     dir: oracledb.BIND_OUT,
     type: oracledb.NUMBER
   }
-
+  console.log("ajout de lutilisateur");
   const result = await database.simpleExecute(createSql, user);
 
   user.user_id = result.outBinds.user_id[0];
 
-  return user;
+  return result;
 }
 
 module.exports.create = create;
