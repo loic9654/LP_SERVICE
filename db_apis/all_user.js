@@ -19,6 +19,7 @@ async function findUser(context) {
   let query = baseQuery + ` where ID_USER = 1 and MOT_DE_PASSE = 'toto'`;
 
   const result = await database.simpleExecute(query, binds);
+  console.console.log(result.rows);
   return result.rows;
 }
 
