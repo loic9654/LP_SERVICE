@@ -40,14 +40,14 @@ const createSql =
 async function create(emp) {
   const user = Object.assign({}, emp);
 
-  user.user_id = {
-    dir: oracledb.BIND_OUT,
-    type: oracledb.NUMBER
-  }
+  // user.user_id = {
+  //   dir: oracledb.BIND_OUT,
+  //   type: oracledb.NUMBER
+  // }
   console.log("ajout de lutilisateur");
   const result = await database.simpleExecute(createSql, user);
 
-  user.user_id = result.outBinds.user_id[0];
+  //user.user_id = result.outBinds.user_id[0];
 
   return result;
 }
