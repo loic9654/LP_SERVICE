@@ -33,6 +33,8 @@ const createSql =
   ) values (
     :username,
     :password,
+    "date",
+    2
 
   ) returning ID_USER
   into :ID_USER`;
