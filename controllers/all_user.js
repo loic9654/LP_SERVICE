@@ -33,7 +33,7 @@ async function post(req, res, next) {
   try {
     let user = getUseFromReq(req);
 
-    user = await users.create(employee);
+    user = await users.create(user);
     res.status(201).json(user);
   } catch (err) {
     next(err);
