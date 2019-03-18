@@ -19,7 +19,7 @@ function initialize() {
     app.use(morgan('combined'));
     app.use(bodyParser.urlencoded({extended: false}));
     app.use(bodyParser.json());
-    app.use(jwt());
+    //app.use(jwt());
     app.use(errorHandler);
     app.use((req,res,next) => {
       res.header('Access-Control-Allow-Origin', '*');
