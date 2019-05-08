@@ -18,6 +18,8 @@ router.route('/users/')
 
 router.route('/users/register').post(user.post);
 
+router.route('/users/modify/password').post(user.modifyPass);
+
 //router.route('/users/authenticate').post(auth.authenticate);
 
 module.exports = router;

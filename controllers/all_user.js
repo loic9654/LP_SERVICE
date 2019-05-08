@@ -40,5 +40,19 @@ async function post(req, res, next) {
   }
 }
 
+async function modifyPass(req, res, next) {
+  console.log('password changed');
+
+  try {
+    let user = getUseFromReq(req);
+
+    user = await users.modifyPass(user);
+    res.status(201).json(user);
+  } catch (err) {
+    next(err);
+  }
+}
+
+module.exports.post = modifyPass;
 module.exports.post = post;
 module.exports.get = get;
