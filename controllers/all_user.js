@@ -52,7 +52,7 @@ async function modifyPass(req, res, next) {
   console.log('password changed');
 
   try {
-    let user = ChangeUsePassFromReq(req);
+    let user = getUseFromReq(req);
 
     user = await users.modifyPass(user);
     res.status(201).json(user);
