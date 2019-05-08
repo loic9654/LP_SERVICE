@@ -27,8 +27,17 @@ function getUseFromReq(req) {
   };
 }
 
+function ChangeUsePassFromReq(req) {
+  console.log("extract user from form");
+  const user = {
+    username:  req.body.username,
+    password:  req.body.password,
+    token: 'testToken'
+  };
+}
+
 async function post(req, res, next) {
-  console.log('BANANANANANANA user posted');
+  console.log('user posted');
 
   try {
     let user = getUseFromReq(req);
@@ -40,7 +49,7 @@ async function post(req, res, next) {
   }
 }
 
-async function modifyPass(req, res, next) {
+async function ChangeUsePassFromReq(req, res, next) {
   console.log('password changed');
 
     let user = getUseFromReq(req);
