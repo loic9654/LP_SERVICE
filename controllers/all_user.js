@@ -50,6 +50,6 @@ async function modifyPass(req, res, next) {
 
 }
 
-module.exports.post = modifyPass;
+module.exports.modifyPass = modifyPass;
 module.exports.post = post;
 module.exports.get = get;
