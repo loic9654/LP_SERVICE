@@ -40,7 +40,7 @@ const createSql =
   into :ID_USER`;
 
   const modifyPassSql =
-   `upadate utilisateur set
+   `update utilisateur set
       MOT_DE_PASSE =:password
       where ID_USER =:username`;
 
