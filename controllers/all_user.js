@@ -31,8 +31,7 @@ function ChangeUsePassFromReq(req) {
   console.log("extract user from form");
   const user = {
     username:  req.body.username,
-    password:  req.body.password,
-    token: 'testToken'
+    password:  req.body.password
   };
 }
 
