@@ -28,7 +28,7 @@ function simpleExecute(statement, binds = [], opts = {}) {
     } catch (err) {
       reject(err);
     } finally {
-      console.log(result);
+      console.log(resolve(result));
       if (conn) { // conn assignment worked, need to close
         try {
           await conn.close();
