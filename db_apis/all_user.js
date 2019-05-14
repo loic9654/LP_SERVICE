@@ -63,7 +63,7 @@ async function modifyPass(emp) {
   //   type: oracledb.NUMBER
   // }
   console.log("modification de lutilisateur");
-  console.log(user);
+  console.log(emp);
   const result = await database.otherExecuteModPass([emp[0], emp [1]], emp);
 
   //user.user_id = result.outBinds.user_id[0];
