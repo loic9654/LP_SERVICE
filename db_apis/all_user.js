@@ -68,7 +68,7 @@ async function modifyPass(emp) {
   //   type: oracledb.NUMBER
   // }
   console.log("modification de lutilisateur");
-  const result = await database.simpleExecute(modifyPassSql, user);
+  const result = await database.simpleExecute(modifyPassSql, emp);
 
   //user.user_id = result.outBinds.user_id[0];
 

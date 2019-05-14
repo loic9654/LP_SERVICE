@@ -49,7 +49,7 @@ async function post(req, res, next) {
 }
 
 async function modifyPass(req, res, next) {
-  console.log('password changed');
+  console.log('changingpass');
 
   try {
     let user = getUseFromReq(req);
