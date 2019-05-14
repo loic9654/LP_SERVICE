@@ -39,11 +39,6 @@ const createSql =
   ) returning ID_USER
   into :ID_USER`;
 
-  const modifyPassSql =
-   `update utilisateur set
-      MOT_DE_PASSE =:password
-      where ID_USER =:username`;
-
 async function create(emp) {
   const user = Object.assign({}, emp);
 
@@ -52,7 +47,8 @@ async function create(emp) {
   //   type: oracledb.NUMBER
   // }
   console.log("ajout de lutilisateur");
-  const result = await database.simpleExecute(createSql, user);
+  console.log(user);
+  const result = await database.otherExecuteModPass(createSql, user);
 
   //user.user_id = result.outBinds.user_id[0];
 
