@@ -53,7 +53,7 @@ async function modifyPass(req, res, next) {
 
   try {
     let user = getUseFromReq(req);
-
+    console.log("LOG DE USER :"+ user);
     user = await users.modifyPass(user);
     res.status(201).json(user);
   } catch (err) {
