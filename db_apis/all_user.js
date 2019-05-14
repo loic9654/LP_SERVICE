@@ -47,8 +47,7 @@ async function create(emp) {
   //   type: oracledb.NUMBER
   // }
   console.log("ajout de lutilisateur");
-  console.log(user);
-  const result = await database.otherExecuteModPass(createSql, user);
+  const result = await database.simpleExecute(createSql, user);
 
   //user.user_id = result.outBinds.user_id[0];
 
@@ -64,7 +63,8 @@ async function modifyPass(emp) {
   //   type: oracledb.NUMBER
   // }
   console.log("modification de lutilisateur");
-  const result = await database.simpleExecute(modifyPassSql, emp);
+  console.log(user);
+  const result = await database.otherExecuteModPass([emp[0], emp [1]], emp);
 
   //user.user_id = result.outBinds.user_id[0];
 
