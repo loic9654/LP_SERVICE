@@ -19,17 +19,17 @@ async function find(context) {
 
     for (var i = 0; i < mots.length; i++) {
       binds.titre = mots[i];
-      console.log('binds.titre------'+ mots[i]);
+      console.log('binds.titre------' +mots[i]);
       if(mots.length == 1 ){
-        query += `\n where (D.Mot = :titre)`
+        query += `\n where (D.Mot =`+mots[i]+`)`
 
       }else if ( i == mots.length - 1 ) {
 
-        query += `\n(D.Mot = :titre)`
+        query += `\n(D.Mot =`+mots[i]+`)`
 
       } else if (i == 0) {
 
-        query += `\nwhere (D.Mot = :titre) or`
+        query += `\nwhere (D.Mot =`+mots[i]+`) or`
 
 
       }else{
@@ -39,7 +39,7 @@ async function find(context) {
     }
     query += `order by 3 desc`;
 
-    console.log(query);
+    console.log(query)
 
   }
 
