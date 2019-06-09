@@ -19,7 +19,7 @@ async function find(context) {
 
     for (var i = 0; i < mots.length; i++) {
       binds.titre = mots[i];
-      console.log('binds.titre');
+      console.log('binds.titre------'+ mots[i]);
       if(mots.length == 1 ){
         query += `\n where (D.Mot = :titre)`
 
