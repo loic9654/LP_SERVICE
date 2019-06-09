@@ -24,38 +24,7 @@ function simpleExecute(statement, binds = [], opts = {}) {
       conn = await oracledb.getConnection();
 
       const result = await conn.execute(statement, binds, opts);
-      resolve(result);
-    } catch (err) {
-      reject(err);
-    } finally {
-      if (conn) { // conn assignment worked, need to close
-        try {
-          await conn.close();
-        } catch (err) {
-          console.log(err);
-        }
-      }
-    }
-  });
-}
-
-function otherExecuteModPass(args, binds = [], opts = {}) {
-  return new Promise(async (resolve, reject) => {
-    let conn;
-
-    opts.outFormat = oracledb.OBJECT;
-    opts.autoCommit = true;
-
-    try {
-      conn = await oracledb.getConnection();
-
-      const result = await conn.execute(
-        "update utilisateur set MOT_DE_PASSE ="+args[0]+" where ID_USER ="+args[1],
-        function(err, result){
-          if (err) { console.error(err); return; }
-          console.log(result.rows);
-        }
-      );
+ 
       resolve(result);
     } catch (err) {
       reject(err);
@@ -72,4 +41,3 @@ function otherExecuteModPass(args, binds = [], opts = {}) {
 }
 
 module.exports.simpleExecute = simpleExecute;
-module.exports.simpleExecute = otherExecuteModPass;
