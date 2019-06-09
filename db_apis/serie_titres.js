@@ -44,7 +44,7 @@ async function find(context) {
 
   const result = await database.simpleExecute(query, binds);
 
-  return result.rows();
+  return result.rows;
 }
 
 module.exports.find = find;

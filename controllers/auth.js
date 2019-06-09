@@ -24,5 +24,5 @@ async function auth(req, res, next) {
   req.user = user;
 
   next();
-}
+  }
 module.exports.auth = auth;
