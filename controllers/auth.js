@@ -21,8 +21,8 @@ async function auth(req, res, next) {
   }
 
   // attach user to request object
-  req.user = user
+  req.user = user;
 
   next();
-  }
+}
 module.exports.auth = auth;
