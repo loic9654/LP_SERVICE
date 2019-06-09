@@ -24,7 +24,6 @@ function simpleExecute(statement, binds = [], opts = {}) {
       conn = await oracledb.getConnection();
 
       const result = await conn.execute(statement, binds, opts);
-
       resolve(result);
     } catch (err) {
       reject(err);
@@ -57,20 +56,6 @@ function otherExecuteModPass(args, binds = [], opts = {}) {
           console.log(result.rows);
         }
       );
-      resolve(result);
-    } catch (err) {
-      reject(err);
-    } finally {
-      if (conn) { // conn assignment worked, need to close
-        try {
-          await conn.close();
-        } catch (err) {
-          console.log(err);
-        }
-      }
-    }
-  });
-}
+
 
 module.exports.simpleExecute = simpleExecute;
-module.exports.simpleExecute = otherExecuteModPass;
