@@ -33,7 +33,7 @@ async function find(context) {
 
 
       }else{
-        query += `\n(D.Mot = :titre) or`
+        query += `\n(D.Mot =`+mots[i]+`) or`
 
       }
     }
