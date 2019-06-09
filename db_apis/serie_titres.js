@@ -25,15 +25,15 @@ async function find(context) {
 
       }else if ( i == mots.length - 1 ) {
 
-        query += `\n(D.Mot =`+mots[i]+`)`
+        query += `\n(D.Mot ='`+mots[i]+`')`
 
       } else if (i == 0) {
 
-        query += `\nwhere (D.Mot =`+mots[i]+`) or`
+        query += `\nwhere (D.Mot ='`+mots[i]+`') or`
 
 
       }else{
-        query += `\n(D.Mot =`+mots[i]+`) or`
+        query += `\n(D.Mot ='`+mots[i]+`') or`
 
       }
     }
