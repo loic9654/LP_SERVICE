@@ -5,8 +5,6 @@ async function get(req, res, next) {
     const context = {};
 
     context.id = parseInt(req.params.id, 10);
-    await console.log('log du name');
-    await console.log(req.params.id);
     const rows = await series.find(context);
 
     if (req.params.id) {
@@ -21,6 +19,8 @@ async function get(req, res, next) {
   } catch (err) {
     next(err);
   }
+  await console.log('log du name');
+  await console.log(req.params.id);
 }
 
 
