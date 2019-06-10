@@ -43,7 +43,7 @@ async function find(context) {
 
   }
 
-  const result = await database.simpleExecute(query, binds);
+  const result = await database.simpleExecute(query);
 
   return result.rows;
 }
