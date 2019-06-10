@@ -5,6 +5,10 @@ console.log('allllll user arrrre herrre dbapis');
 const baseQuery =
  `SELECT * from Utilisateur`
 
+ async function authenticate() {
+   console.log("TODO auth--db_apis/alluser");
+ }
+
 async function find(context) {
   console.log("find");
   let query = baseQuery;
