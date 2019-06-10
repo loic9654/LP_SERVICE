@@ -20,6 +20,10 @@ async function get(req, res, next) {
     }
   } catch (err) {
     next(err);
+  } finally{
+    console.log('log du name');
+    console.log(req.params.id);
+    
   }
 }
 
