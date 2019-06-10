@@ -75,7 +75,7 @@ async function modifyPass(emp) {
 
   return result;
 }
-
+module.exports.authenticate = authenticate;
 module.exports.create = create;
 module.exports.modifyPass = modifyPass;
 
