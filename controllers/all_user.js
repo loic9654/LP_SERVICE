@@ -2,6 +2,7 @@ const users = require('../db_apis/all_user.js');
 
 console.log('user controlers ok');
 
+console.log('pré auth');
 
 async function authenticate(req, res, next) {
   console.log('auth');
