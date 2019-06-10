@@ -3,6 +3,14 @@ const users = require('../db_apis/all_user.js');
 console.log('allllll user arrrre herrre controlers');
 
 
+async function authenticate(req, res, next) {
+  try {
+      res.status(200).json(req);
+  } catch (err) {
+    next(err);
+  }
+}
+
 async function get(req, res, next) {
   console.log("get all user");
   try {
@@ -60,6 +68,8 @@ async function modifyPass(req, res, next) {
     next(err);
   }
 }
+
+
 
 module.exports.modifyPass = modifyPass;
 module.exports.post = post;
