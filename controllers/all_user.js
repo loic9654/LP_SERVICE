@@ -7,7 +7,7 @@ async function authenticate(req, res, next) {
   try {
       const resp = await users.authenticate()
       res.status(200).json(resp);
-      next();
+      //next();
   } catch (err) {
     next(err);
   }
