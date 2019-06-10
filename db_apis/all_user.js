@@ -2,12 +2,20 @@ const database = require('../services/database.js');
 
 console.log('allllll user arrrre herrre dbapis');
 
-const baseQuery =
- `SELECT * from Utilisateur`
+const baseQuery =`SELECT * from Utilisateur`;
 
  async function authenticate() {
    console.log("TODO auth--db_apis/alluser");
    return 'ok'
+ }
+
+ async function recommandation(context) {
+   let query = "";
+   const binds = {};
+   if (context.user) {
+     user = context.user;
+   const result = await database.simpleExecute('select * from utilisateur');
+   return result.rows;
  }
 
 async function find(context) {
@@ -75,9 +83,11 @@ async function modifyPass(emp) {
 
   return result;
 }
+
+
+module.exports.recommandation = recommandation;
 module.exports.authenticate = authenticate;
 module.exports.create = create;
 module.exports.modifyPass = modifyPass;
-
 module.exports.find = find;
 module.exports.findUser = findUser;

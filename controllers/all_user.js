@@ -4,9 +4,29 @@ console.log('user controlers ok');
 
 console.log('pré auth');
 
+async function recommande(req, res, next) {
+  try {
+    const context = {};
+
+    context.user = req.params.id_user;
+    //console.debug('------titre : '   + req.params.titre);
+    const rows = await users.recommandation(context);
+
+    if (req.params.titre) {
+	     res.status(200).json(rows);
+
+    } else {
+      res.status(200).json(rows);
+    }
+  } catch (err) {
+    next(err);
+  }
+}
+
 async function authenticate(req, res, next) {
   try {
       const resp = await users.authenticate()
+
       res.status(200).send("{"+resp+"}");
       //next();
   } catch (err) {
@@ -14,7 +34,7 @@ async function authenticate(req, res, next) {
   } finally{
     console.log('auth');
     console.log(req.params.id_user);
-  
+
   }
 }
 
@@ -76,7 +96,7 @@ async function modifyPass(req, res, next) {
   }
 }
 
-
+module.exports.recommande = recommande;
 module.exports.authenticate = authenticate;
 module.exports.modifyPass = modifyPass;
 module.exports.post = post;

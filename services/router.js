@@ -16,6 +16,8 @@ router.route('/series/:titre?')
 /*todo*/
 router.route('user/authenticate/:id_user?').get(user.authenticate)
 
+router.route('user/recommande/:id_user?').get(user.recommande)
+
 router.route('/users/')
   .get(user.get);
 

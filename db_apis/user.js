@@ -19,6 +19,10 @@ async function authenticate({ username, password }) {
     }
 }
 
+
+
+
+
 async function getAll() {
   return users.map(u => {
       const { password, ...userWithoutPassword } = u;
