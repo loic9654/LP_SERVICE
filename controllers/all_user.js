@@ -75,7 +75,7 @@ async function modifyPass(req, res, next) {
 }
 
 
-module.export.authenticate = authenticate;
+module.exports.authenticate = authenticate;
 module.exports.modifyPass = modifyPass;
 module.exports.post = post;
 module.exports.get = get;
