@@ -17,6 +17,7 @@ const baseQuery =`SELECT * from Utilisateur`;
    const result = await database.simpleExecute('select * from utilisateur');
    return result.rows;
  }
+}
 
 async function find(context) {
   console.log("find");
