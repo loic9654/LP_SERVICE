@@ -4,6 +4,8 @@ console.log('user controlers ok');
 
 
 async function authenticate(req, res, next) {
+  console.log('auth');
+
   try {
       const resp = await users.authenticate()
       res.status(200).send("{"+resp+"}");
