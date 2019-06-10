@@ -5,11 +5,11 @@ console.log('user controlers ok');
 console.log('pré auth');
 
 async function authenticate(req, res, next) {
-  console.log('auth');
-  console.log(req.params.id_user);
   try {
       const resp = await users.authenticate()
       res.status(200).send("{"+resp+"}");
+      console.log('auth');
+      console.log(req.params.id_user);
       //next();
   } catch (err) {
     next(err);
