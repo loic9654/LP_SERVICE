@@ -1,6 +1,6 @@
 const users = require('../db_apis/all_user.js');
 
-console.log('allllll user arrrre herrre controlers');
+console.log('user controlers ok');
 
 
 async function authenticate(req, res, next) {
@@ -71,7 +71,7 @@ async function modifyPass(req, res, next) {
 }
 
 
-
+module.export.authenticate = authenticate
 module.exports.modifyPass = modifyPass;
 module.exports.post = post;
 module.exports.get = get;
