@@ -58,6 +58,10 @@ function otherExecuteModPass(args, binds = [], opts = {}) {
           console.log(result.rows);
         }
       );
+    } catch (err) {
+      console.log(err);
+    }
+  }
 
 
 module.exports.simpleExecute = simpleExecute;
