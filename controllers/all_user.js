@@ -6,6 +6,7 @@ console.log('allllll user arrrre herrre controlers');
 async function authenticate(req, res, next) {
   try {
       res.status(200).json(req);
+      next();
   } catch (err) {
     next(err);
   }
