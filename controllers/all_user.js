@@ -5,8 +5,8 @@ console.log('user controlers ok');
 
 async function authenticate(req, res, next) {
   try {
-      await users.authenticate()
-      res.status(200).json('OK');
+      const resp = await users.authenticate()
+      res.status(200).json(resp);
       next();
   } catch (err) {
     next(err);

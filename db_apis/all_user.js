@@ -7,6 +7,7 @@ const baseQuery =
 
  async function authenticate() {
    console.log("TODO auth--db_apis/alluser");
+   return 'ok'
  }
 
 async function find(context) {
