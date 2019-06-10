@@ -8,11 +8,13 @@ async function authenticate(req, res, next) {
   try {
       const resp = await users.authenticate()
       res.status(200).send("{"+resp+"}");
-      console.log('auth');
-      console.log(req.params.id_user);
       //next();
   } catch (err) {
     next(err);
+  } finally{
+    console.log('auth');
+    console.log(req.params.id_user);
+  
   }
 }
 
