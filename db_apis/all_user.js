@@ -17,8 +17,8 @@ const baseQuery =`SELECT * from Utilisateur`;
    }else {
 
      var token = {
-       token: crypto.createHash('md5').update(user+pass).digest('hex');
-       pass : result.rows[0][MOT_DE_PASSE] 
+       token: crypto.createHash('md5').update(user+pass).digest('hex'),
+       pass : result.rows[0 ][MOT_DE_PASSE]
      };
      result.rows.push(token);
      return result.rows
