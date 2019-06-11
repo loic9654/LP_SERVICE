@@ -24,9 +24,13 @@ async function recommande(req, res, next) {
 
 async function authenticate(req, res, next) {
   try {
-      const resp = await users.authenticate()
+    const context = {};
+    context.user = req.params.id_user;
+    context.pass = req.params.pass;
 
-      res.status(200).send("{"+resp+"}");
+    const resp = await users.authenticate(context)
+
+      res.status(200).json(resp);
       //next();
   } catch (err) {
     next(err);

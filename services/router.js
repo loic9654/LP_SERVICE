@@ -17,7 +17,7 @@ router.route('/series/similar/:titre?')
   .get(serieTitres.getSimilar);
 
 /*todo*/
-router.route('/user/authenticate/:id_user?').get(user.authenticate)
+router.route('/user/authenticate/:id_user?/:pass?').get(user.authenticate)
 // return
 
 router.route('/user/recommande/:id_user?').get(user.recommande)

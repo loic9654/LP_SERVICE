@@ -4,9 +4,9 @@ console.log('dbapis ok');
 
 const baseQuery =`SELECT * from Utilisateur`;
 
- async function authenticate() {
+ async function authenticate(context) {
    console.log("TODO auth--db_apis/alluser");
-   return 'ok'
+   return {context.user_id, context.pass}
  }
 
  async function recommandation(context) {
