@@ -8,7 +8,7 @@ const baseQuery =`SELECT * from Utilisateur`;
    console.log("TODO auth--db_apis/user");
    const result = await database.simpleExecute("select * from utilisateur where ID_USER='"+context.user_id+"'");
    console.log(context.pass);
-   return result
+   return result.rows
  }
 
  async function recommandation(context) {
