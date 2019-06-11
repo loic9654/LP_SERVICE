@@ -9,7 +9,12 @@ const baseQuery =`SELECT * from Utilisateur`;
    const query = `select * from utilisateur where ID_USER='`+context.user+`'`
    const result = await database.simpleExecute(query);
    console.log(query);
-   return result.rows
+   if (result.rows.length == 0 ){
+     return {"error" : "no values to return"}
+   }else {
+     return result.rows
+
+   }
  }
 
  async function recommandation(context) {
