@@ -18,8 +18,10 @@ async function recommande(req, res, next) {
       res.status(404);
     }
   } catch (err) {
-    next(err);
     console.log("banana");
+    next(err);
+  } finally {
+    res.status(200).json(rows);
   }
 }
 
