@@ -10,16 +10,16 @@ async function recommande(req, res, next) {
 
     context.user = req.params.id_user;
     //console.debug('------titre : '   + req.params.titre);
-    const rows = await users.recommandation(context);
 
-    if (req.params.titre) {
-	     res.status(200).json(rows);
-
-    } else {
+    if (req.params.id_user) {
+      const rows = await users.recommandation(context);
       res.status(200).json(rows);
+    } else {
+      res.status(404);
     }
   } catch (err) {
     next(err);
+    console.log("banana");
   }
 }
 
