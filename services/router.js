@@ -20,16 +20,15 @@ router.route('/series/getID/:titre?').get(serieTitres.getID);
 
 
 /*todo*/
-router.route('/user/authenticate/:id_user?/:pass?').get(user.authenticate)
+router.route('/user/authenticate/:id_user?/:pass?').get(user.authenticate);
 // return
 
 
-router.route('/user/recommande/:id_user?').get(user.recommande)
+router.route('/user/recommande/:id_user?').get(user.recommande);
 
-router.route('/series/getnote/:id_serie?').get(series.getNote)
+router.route('/user/addnote/:id_user?/:id_serie?/:note?').get(user.addNote);
 
-/*todo*/
-//router.route('/user/addnote/:id_user?').get(addNote.recommande)
+router.route('/series/getnote/:id_serie?').get(series.getNote);
 
 
 /*todo*/

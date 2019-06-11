@@ -109,6 +109,14 @@ async function modifyPass(emp) {
   return result;
 }
 
+async function addNote(context) {
+
+  const queryID = `insert INTO notation VALUES ('`+context.user+`','`+context.serie+`',`+context.note+`)`;
+  console.log(queryID);
+  const result = await database.simpleExecute(queryID);
+  return result.rows;
+}
+
 
 module.exports.recommandation = recommandation;
 module.exports.authenticate = authenticate;

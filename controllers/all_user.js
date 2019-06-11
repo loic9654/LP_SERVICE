@@ -22,6 +22,8 @@ async function recommande(req, res, next) {
   }
 }
 
+
+
 async function authenticate(req, res, next) {
   try {
     const context = {};
@@ -95,7 +97,26 @@ async function modifyPass(req, res, next) {
   }
 }
 
+async function addNote(req, res, next) {
+  try {
+    const context = {};
+    context.serie = req.params.id_serie;
+    context.user = req.params.id_user;
+    context.note = req.params.note;
+    if (req.params.id_serie) {
+      const rows = await users.addNote(context);
+      res.status(200).json(rows);
+    } else {
+      res.status(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+}
 
+
+
+module.exports.addNote = addNote;
 module.exports.recommande = recommande;
 module.exports.authenticate = authenticate;
 module.exports.modifyPass = modifyPass;
