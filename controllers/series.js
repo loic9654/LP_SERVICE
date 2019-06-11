@@ -25,10 +25,10 @@ async function getNote(req, res, next) {
   try {
     const context = {};
 
-    context.serie = req.params.serie;
+    context.serie = req.params.id_serie;
     //console.debug('------titre : '   + req.params.titre);
 
-    if (req.params.id_user) {
+    if (req.params.id_serie) {
       const rows = await series.getNote(context);
       res.status(200).json(rows);
     } else {
