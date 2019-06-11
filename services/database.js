@@ -22,7 +22,8 @@ function simpleExecute(statement, binds = [], opts = {}) {
 
     try {
       conn = await oracledb.getConnection();
-
+      console.log("-----statement");
+      console.log(statement);
       const result = await conn.execute(statement, binds, opts);
       console.log(result);
 
