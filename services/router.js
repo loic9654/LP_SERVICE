@@ -31,11 +31,10 @@ router.route('/user/addnote/:id_user?/:id_serie?/:note?').get(user.addNote);
 router.route('/series/getnote/:id_serie?').get(series.getNote);
 
 
-/*todo*/
 router.route('/user/addfav/:id_user?/:id_serie?').get(user.addFav)
 
-/*todo*/
-router.route('/user/getfav/:id_user?').get(user.getFav)
+/*todo do not work*/
+//router.route('/user/getfav/:id_user?').get(user.getFav)
 
 
 
