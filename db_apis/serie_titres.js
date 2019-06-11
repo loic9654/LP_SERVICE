@@ -44,7 +44,7 @@ async function findSimilar(context) {
     where rownum <= 3;`
 
   }
-  const result = await database.simpleExecute(query, binds);
+  const result = await database.simpleExecute(querySimilar);
   return result.rows;
 }
 
