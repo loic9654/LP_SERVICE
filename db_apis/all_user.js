@@ -15,7 +15,7 @@ const baseQuery =`SELECT * from Utilisateur`;
      var token = {
        test: 'test'
      };
-     result.rows["test"].push(token);
+     result.rows.push(token);
      return result.rows
 
    }
