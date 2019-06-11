@@ -14,7 +14,7 @@ router.route('/series/:titre?')
   .get(serieTitres.get);
 
 router.route('/series/similar/:titre?')
-  .get(serieTitres.getSmilar);
+  .get(serieTitres.getSimilar);
 
 /*todo*/
 router.route('/user/authenticate/:id_user?').get(user.authenticate)
