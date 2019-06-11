@@ -114,7 +114,7 @@ async function addNote(context) {
   const queryID = `insert INTO notation VALUES ('`+context.user+`','`+context.serie+`',`+context.note+`)`;
   console.log(queryID);
   const result = await database.simpleExecute(queryID);
-  return result.rows;
+  return {"result" : "success !"};
 }
 
 module.exports.addNote = addNote;
