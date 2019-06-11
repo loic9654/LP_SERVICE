@@ -145,6 +145,25 @@ async function getFav(req, res, next) {
   }
 }
 
+async function addComment(req, res, next) {
+  try {
+    const context = {};
+    context.user = req.params.id_user;
+    context.serie = req.params.id_serie;
+    context.comment = req.params.comment_value;
+    if (req.params.id_serie) {
+      const rows = await users.addComment(context);
+      res.status(200).json(rows);
+    } else {
+      res.status(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+}
+
+
+module.exports.addComment = addComment;
 module.exports.addFav = addFav;
 module.exports.getFav = getFav;
 module.exports.addNote = addNote;

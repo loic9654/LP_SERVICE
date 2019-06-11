@@ -36,6 +36,9 @@ router.route('/user/addfav/:id_user?/:id_serie?').get(user.addFav)
 /*todo do not work*/
 //router.route('/user/getfav/:id_user?').get(user.getFav)
 
+router.route('/user/addcomment/:id_user?/:id_serie?/:comment_value?').get(user.addComment)
+
+
 
 
 router.route('/users/').get(user.get);
