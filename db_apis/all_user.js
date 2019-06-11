@@ -13,7 +13,7 @@ const baseQuery =`SELECT * from Utilisateur`;
    //YEAH ! beautifull binding..
    if (context.user) {
      let query = `select count(I.ID_Serie),I.ID_Serie, S.titre from intermediaire I, intermediaire I2,favoris F,Serie S
-     where I.ID_Serie not in (select ID_Serie from favoris where ID_USER=`+context.user+`)
+     where I.ID_Serie not in (select ID_Serie from favoris where ID_USER='1')
      AND I.ID_Mot = I2.Id_Mot
      AND S.ID_Serie = I.ID_Serie
      group by I.ID_serie,S.titre
