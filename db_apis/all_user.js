@@ -134,7 +134,7 @@ async function getFav(context) {
 }
 
 async function addComment(context) {
-  var uuid = Math.floor(Math.random()*(99999999-1+1)+1)
+  var uuid = Math.floor(Math.random()*(9999999999-1+1)+1)
   const queryID = `insert INTO commentaire VALUES ('`+context.user+`','`+context.serie+`',`+uuid+`,'`+context.comment+`')`;
   console.log(queryID);
   const result = await database.simpleExecute(queryID);
