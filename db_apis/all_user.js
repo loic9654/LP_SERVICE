@@ -12,7 +12,7 @@ const baseQuery =`SELECT * from Utilisateur`;
    if (result.rows.length == 0 ){
      return {"error" : "no values to return"}
    }else {
-     result["test"] = test
+     result.rows["test"] = test;
      return result.rows
 
    }
