@@ -22,7 +22,7 @@ const baseQuery =`SELECT * from Utilisateur`;
        result.rows.push(token);
        return result.rows
    }else {
-      return {"error" : "no values to return"}
+      return {"error" : "wrong password m8 ! ;)"}
    }
 
    }
