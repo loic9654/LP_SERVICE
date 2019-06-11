@@ -114,8 +114,24 @@ async function addNote(req, res, next) {
   }
 }
 
+async function addNote(req, res, next) {
+  try {
+    const context = {};
+    context.serie = req.params.id_serie;
+    context.user = req.params.id_user;
+    if (req.params.id_serie) {
+      const rows = await users.addFav(context);
+      res.status(200).json(rows);
+    } else {
+      res.status(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+}
 
 
+module.exports.addFav = addFav;
 module.exports.addNote = addNote;
 module.exports.recommande = recommande;
 module.exports.authenticate = authenticate;

@@ -117,6 +117,15 @@ async function addNote(context) {
   return {"result" : "success !"};
 }
 
+async function addFav(context) {
+
+  const queryID = `insert INTO favoris VALUES ('`+context.user+`','`+context.serie+`')`;
+  console.log(queryID);
+  const result = await database.simpleExecute(queryID);
+  return {"result" : "success !"};
+}
+
+module.exports.addFav = addFav;
 module.exports.addNote = addNote;
 module.exports.recommandation = recommandation;
 module.exports.authenticate = authenticate;
