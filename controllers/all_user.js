@@ -114,7 +114,7 @@ async function addNote(req, res, next) {
   }
 }
 
-async function addNote(req, res, next) {
+async function addFav(req, res, next) {
   try {
     const context = {};
     context.serie = req.params.id_serie;
