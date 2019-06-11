@@ -19,6 +19,7 @@ async function getNote(context) {
 
   serie = context.serie;
   let query = `select avg(note) from notation where ID_SERIE='`+serie+`'`;
+  console.log(query);
   const result = await database.simpleExecute(query);
   return result.rows;
 // }else {
