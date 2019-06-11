@@ -22,24 +22,6 @@ async function recommande(req, res, next) {
   }
 }
 
-async function getNote(req, res, next) {
-  try {
-    const context = {};
-
-    context.serie = req.params.serie;
-    //console.debug('------titre : '   + req.params.titre);
-
-    if (req.params.id_user) {
-      const rows = await users.getNote(context);
-      res.status(200).json(rows);
-    } else {
-      res.status(404);
-    }
-  } catch (err) {
-    next(err);
-  }
-}
-
 async function authenticate(req, res, next) {
   try {
     const context = {};
@@ -113,8 +95,6 @@ async function modifyPass(req, res, next) {
   }
 }
 
-
-module.exports.getNote = getNote;
 
 module.exports.recommande = recommande;
 module.exports.authenticate = authenticate;

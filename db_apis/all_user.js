@@ -40,21 +40,6 @@ const baseQuery =`SELECT * from Utilisateur`;
      order by 1 desc`;
    const result = await database.simpleExecute(query);
    return result.rows;
- // }else {
- //   return "ntm du nord"
- // }
-
-}
-
-async function getNote(context) {
-
-  serie = context.serie;
-  let query = `select avg(note) from notation where ID_SERIE='`+serie+`';`;
-  const result = await database.simpleExecute(query);
-  return result.rows;
-// }else {
-//   return "ntm du nord"
-// }
 
 }
 
@@ -124,7 +109,6 @@ async function modifyPass(emp) {
   return result;
 }
 
-module.exports.getNote = getNote;
 
 module.exports.recommandation = recommandation;
 module.exports.authenticate = authenticate;
