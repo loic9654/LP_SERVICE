@@ -1,19 +1,24 @@
 const database = require('../services/database.js');
-
+var crypto = require('crypto');
 console.log('dbapis ok');
 
 const baseQuery =`SELECT * from Utilisateur`;
 
  async function authenticate(context) {
+   var user = context.user
+   var pass = context.pass
+
    console.log("TODO auth--db_apis/user");
-   const query = `select * from utilisateur where ID_USER='`+context.user+`'`
+   const query = `select * from utilisateur where ID_USER='`+user+`'`
    const result = await database.simpleExecute(query);
    console.log(query);
    if (result.rows.length == 0 ){
      return {"error" : "no values to return"}
    }else {
+
      var token = {
-       test: 'test'
+       token: crypto.createHash('md5').update(user+pass).digest('hex');
+       pass : result.rows[0][MOT_DE_PASSE] 
      };
      result.rows.push(token);
      return result.rows
