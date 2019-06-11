@@ -22,7 +22,7 @@ async function getNote(context) {
   console.log(query);
   const result = await database.simpleExecute(query);
   console.log(result);
-  return result.rows;
+  return result;
 // }else {
 //   return "ntm du nord"
 // }
