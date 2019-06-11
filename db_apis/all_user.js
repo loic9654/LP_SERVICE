@@ -13,11 +13,11 @@ const baseQuery =`SELECT * from Utilisateur`;
    //YEAH ! beautifull binding..
    if (context.user) {
      let query = `select count(I.ID_Serie),I.ID_Serie, S.titre from intermediaire I, intermediaire I2,favoris F,Serie S
-     where I.ID_Serie not in (select ID_Serie from favoris where`+context.user+`= 1)
+     where I.ID_Serie not in (select ID_Serie from favoris where ID_USER=`+context.user+`)
      AND I.ID_Mot = I2.Id_Mot
      AND S.ID_Serie = I.ID_Serie
      group by I.ID_serie,S.titre
-     order by 1 desc;";`
+     order by 1 desc`;
      user = context.user;
    const result = await database.simpleExecute(query);
    return result.rows;
