@@ -30,7 +30,7 @@ async function getComment(context) {
   const queryID = `select * from commentaire where ID_SERIE='`+context.serie+`'`;
   console.log(queryID);
   const result = await database.simpleExecute(queryID);
-  return result;
+  return result.rows;
 }
 
 
