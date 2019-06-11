@@ -15,16 +15,4 @@ async function find(context) {
   return result.rows;
 }
 
-
-async function findSimilar(context) {
-  if (context.titre) {
-    let querySimilar = `select * from (
-    select * from serieProche where ID_SERIE = '`+context.titre+`' order by 4 desc)
-    where rownum <= 3;`
-
-  }
-  const result = await database.simpleExecute(query, binds);
-  return result.rows;
-}
-
 module.exports.find = find;

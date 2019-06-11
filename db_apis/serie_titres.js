@@ -22,30 +22,31 @@ async function find(context) {
       console.log('binds.titre------' +mots[i]);
       if(mots.length == 1 ){
         query += `\n where (D.Mot ='`+mots[i]+`')`
-
       }else if ( i == mots.length - 1 ) {
-
         query += `\n(D.Mot ='`+mots[i]+`')`
-
       } else if (i == 0) {
-
         query += `\nwhere (D.Mot ='`+mots[i]+`') or`
-
-
       }else{
         query += `\n(D.Mot ='`+mots[i]+`') or`
-
       }
     }
     query += `order by 3 desc`;
-
     console.log(query)
+  }
+  const result = await database.simpleExecute(query);
+  return result.rows;
+}
+
+async function findSimilar(context) {
+  if (context.titre) {
+    let querySimilar = `select * from (
+    select * from serieProche where ID_SERIE = '`+context.titre+`' order by 4 desc)
+    where rownum <= 3;`
 
   }
-
-  const result = await database.simpleExecute(query);
-
+  const result = await database.simpleExecute(query, binds);
   return result.rows;
 }
 
 module.exports.find = find;
+module.exports.findSimilar = findSimilar;
