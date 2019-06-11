@@ -15,13 +15,15 @@ const baseQuery =`SELECT * from Utilisateur`;
    if (result.rows.length == 0 ){
      return {"error" : "no values to return"}
    }else {
-
-     var token = {
-       token: crypto.createHash('md5').update(user+pass).digest('hex'),
-       pass : result.rows[0 ]["MOT_DE_PASSE"]
-     };
-     result.rows.push(token);
-     return result.rows
+     if (result.rows[0 ]["MOT_DE_PASSE"] == pass){
+       var token = {
+         token: crypto.createHash('md5').update(user+pass).digest('hex')
+       };
+       result.rows.push(token);
+       return result.rows
+   }else {
+      return {"error" : "no values to return"}
+   }
 
    }
  }
