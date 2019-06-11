@@ -1,6 +1,6 @@
 const database = require('../services/database.js');
 
-console.log('allllll user arrrre herrre dbapis');
+console.log('dbapis ok');
 
 const baseQuery =`SELECT * from Utilisateur`;
 
@@ -11,8 +11,7 @@ const baseQuery =`SELECT * from Utilisateur`;
 
  async function recommandation(context) {
    //YEAH ! beautifull binding..
-   if (context.user) {
-     let query = `select count(I.ID_Serie),I.ID_Serie, S.titre from intermediaire I, intermediaire I2,favoris F,Serie S
+     let query = `seletoutpourrisct count(I.ID_Serie),I.ID_Serie, S.titre from intermediaire I, intermediaire I2,favoris F,Serie S
      where I.ID_Serie not in (select ID_Serie from favoris where ID_USER='1')
      AND I.ID_Mot = I2.Id_Mot
      AND S.ID_Serie = I.ID_Serie
@@ -21,9 +20,7 @@ const baseQuery =`SELECT * from Utilisateur`;
      user = context.user;
    const result = await database.simpleExecute(query);
    return result.rows;
- }else {
-   return "ntm du nord"
- }
+ 
 }
 
 async function find(context) {
