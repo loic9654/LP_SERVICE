@@ -13,15 +13,34 @@ router.route('/series/')
 router.route('/series/:titre?')
   .get(serieTitres.get);
 
+router.route('/series/similar/:titre?')
+  .get(serieTitres.getSmilar);
+
 /*todo*/
 router.route('/user/authenticate/:id_user?').get(user.authenticate)
+// return
 
 router.route('/user/recommande/:id_user?').get(user.recommande)
 
-router.route('/users/')
-  .get(user.get);
+/*todo*/
+//router.route('/user/getnote/:id_user?').get(user.recommande)
+
+/*todo*/
+//router.route('/user/addnote/:id_user?').get(user.recommande)
+
+
+/*todo*/
+//router.route('/user/addfav/:id_user?/:id_serie?').get(user.recommande)
+
+/*todo*/
+//router.route('/user/getfav/:id_user?').get(user.recommande)
+
+
+
+router.route('/users/').get(user.get);
 
 router.route('/users/register').post(user.post);
+
 
 router.route('/users/modify/password').post(user.modifyPass);
 

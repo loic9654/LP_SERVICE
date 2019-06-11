@@ -49,19 +49,19 @@ async function get(req, res, next) {
 function getUseFromReq(req) {
   console.log("extract user from form");
   const user = {
-    firstName: req.body.firstName,
-    lastName:  req.body.lastName,
-    username:  req.body.username,
-    password:  req.body.password,
-    token: 'testToken'
+    id: req.body.ID_USER,
+    pass:  req.body.MOT_DE_PASSE,
+    date:  req.body.DATE_CREATION,
+    role:  req.body.ID_ROLE,
+    //token: 'testToken'
   };
 }
 
 function ChangeUsePassFromReq(req) {
   console.log("extract user from form");
   const user = {
-    username:  req.body.username,
-    password:  req.body.password
+    id:  req.body.ID_USER,
+    pass:  req.body.pass
   };
 }
 
