@@ -5,8 +5,9 @@ console.log('dbapis ok');
 const baseQuery =`SELECT * from Utilisateur`;
 
  async function authenticate(context) {
-   console.log("TODO auth--db_apis/alluser");
-   return {context.user_id, context.pass}
+   console.log("TODO auth--db_apis/user");
+   const result = await database.simpleExecute("select from utilisateur where ID_USER='"+context.user_id+"'");
+   return result
  }
 
  async function recommandation(context) {
