@@ -18,10 +18,10 @@ async function find(context) {
 async function getNote(context) {
 
   serie = context.serie;
-  let query = `select avg(note) from notation where ID_SERIE='`+serie+`'`;
+  let query = `select avg(note) as notemoy from notation where ID_SERIE='`+serie+`'`;
   console.log(query);
   const result = await database.simpleExecute(query);
-  return result.rows;
+  return { "notemoy" : result.rows['notemoy'] };
 // }else {
 //   return "ntm du nord"
 // }
