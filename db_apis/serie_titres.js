@@ -45,7 +45,7 @@ async function findSimilar(context) {
   return result.rows;
 }
 
-sync function getID(context) {
+async function getID(context) {
 
   const queryID = `select ID_SERIE from serie where titre like '`+context.titre+`'`;
   console.log(queryID);
