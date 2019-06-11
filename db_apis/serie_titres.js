@@ -38,11 +38,10 @@ async function find(context) {
 }
 
 async function findSimilar(context) {
-  console.log(context.titre);
-    const querySimilar = `select * from (
-    select * from serieProche where ID_SERIE = '`+context.titre+`' order by 4 desc)
+    const querySimilar = `select * from (select * from serieProche where ID_SERIE='`+context.titre+`' order by 4 desc)
     where rownum <= 3;`;
 
+  console.log(querySimilar);
   const result = await database.simpleExecute(querySimilar);
   return result.rows;
 }
