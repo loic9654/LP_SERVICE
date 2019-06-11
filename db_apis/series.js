@@ -21,6 +21,7 @@ async function getNote(context) {
   let query = `select avg(note) as notemoy from notation where ID_SERIE='`+serie+`'`;
   console.log(query);
   const result = await database.simpleExecute(query);
+  console.log(result.rows);
   return { "notemoy" : result.rows['notemoy'] };
 // }else {
 //   return "ntm du nord"
