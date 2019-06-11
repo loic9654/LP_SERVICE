@@ -130,7 +130,7 @@ async function getFav(context) {
   const queryID = `select * from favoris where ID_USER =('`+context.user+`')`;
   console.log(queryID);
   const result = await database.simpleExecute(queryID);
-  return {"result" : "success !"};
+  return result;
 }
 
 module.exports.getFav = getFav;
