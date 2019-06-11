@@ -26,8 +26,6 @@ async function getNote(req, res, next) {
     const context = {};
 
     context.serie = req.params.id_serie;
-    //console.debug('------titre : '   + req.params.titre);
-
     if (req.params.id_serie) {
       const rows = await series.getNote(context);
       res.status(200).json(rows);

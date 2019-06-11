@@ -22,7 +22,7 @@ router.route('/user/authenticate/:id_user?/:pass?').get(user.authenticate)
 
 router.route('/user/recommande/:id_user?').get(user.recommande)
 
-//router.route('/user/getnote/:id_serie?').get(series.getnote)
+router.route('/user/getnote/:id_serie?').get(series.getnote)
 
 /*todo*/
 //router.route('/user/addnote/:id_user?').get(user.recommande)
