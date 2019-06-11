@@ -23,11 +23,17 @@ async function getNote(context) {
   const result = await database.simpleExecute(query);
   console.log(result);
   return result.rows;
-// }else {
-//   return "ntm du nord"
-// }
+
+}
+
+async function getComment(context) {
+  const queryID = `select * from commentaire where ID_SERIE='`+context.serie+`'`;
+  console.log(queryID);
+  const result = await database.simpleExecute(queryID);
+  return result;
 }
 
 
+module.exports.getComment = getComment;
 module.exports.find = find;
 module.exports.getNote = getNote;
