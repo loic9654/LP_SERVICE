@@ -18,10 +18,7 @@ async function recommande(req, res, next) {
       res.status(404);
     }
   } catch (err) {
-    console.log("banana");
     next(err);
-  } finally {
-    res.status(200).json(rows);
   }
 }
 
@@ -33,10 +30,6 @@ async function authenticate(req, res, next) {
       //next();
   } catch (err) {
     next(err);
-  } finally{
-    console.log('auth');
-    console.log(req.params.id_user);
-
   }
 }
 

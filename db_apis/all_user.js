@@ -17,7 +17,7 @@ const baseQuery =`SELECT * from Utilisateur`;
      AND I.ID_Mot = I2.Id_Mot
      AND S.ID_Serie = I.ID_Serie
      group by I.ID_serie,S.titre
-     order by 1 desc`;
+     order by 1 desc;`;
      user = context.user;
    const result = await database.simpleExecute(query);
    return result.rows;
