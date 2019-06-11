@@ -38,6 +38,7 @@ async function find(context) {
 }
 
 async function findSimilar(context) {
+  console.log(context.titre);
   if (context.titre) {
     const querySimilar = `select * from (
     select * from serieProche where ID_SERIE = '`+context.titre+`' order by 4 desc)
