@@ -31,18 +31,30 @@ const baseQuery =`SELECT * from Utilisateur`;
  async function recommandation(context) {
    //YEAH ! beautifull binding..
    //if (context.user) {
+    user = context.user;
      let query = `select count(I.ID_Serie),I.ID_Serie, S.titre from intermediaire I, intermediaire I2,favoris F,Serie S
      where I.ID_Serie not in (select ID_Serie from favoris where ID_USER='1')
      AND I.ID_Mot = I2.Id_Mot
      AND S.ID_Serie = I.ID_Serie
      group by I.ID_serie,S.titre
      order by 1 desc`;
-     user = context.user;
    const result = await database.simpleExecute(query);
    return result.rows;
  // }else {
  //   return "ntm du nord"
  // }
+
+}
+
+async function getNote(context) {
+
+  serie = context.serie;
+  let query = `select avg(note) from notation where ID_SERIE='`+serie+`';`;
+  const result = await database.simpleExecute(query);
+  return result.rows;
+// }else {
+//   return "ntm du nord"
+// }
 
 }
 
@@ -112,6 +124,7 @@ async function modifyPass(emp) {
   return result;
 }
 
+module.exports.getNote = getNote;
 
 module.exports.recommandation = recommandation;
 module.exports.authenticate = authenticate;
