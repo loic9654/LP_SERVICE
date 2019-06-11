@@ -9,22 +9,63 @@ const baseQuery =`SELECT * from Utilisateur`;
    return 'ok'
  }
 
- async function recommandation(context) {
-   //YEAH ! beautifull binding..
-   //if (context.user) {
-     let query = `select count(I.ID_Serie),I.ID_Serie, S.titre from intermediaire I, intermediaire I2,favoris F,Serie S
-     where I.ID_Serie not in (select ID_Serie from favoris where ID_USER='1')
-     AND I.ID_Mot = I2.Id_Mot
-     AND S.ID_Serie = I.ID_Serie
-     group by I.ID_serie,S.titre
-     order by 1 desc`;
-     user = context.user;
-   const result = await database.simpleExecute(query);
-   return result.rows;
- // }else {
- //   return "ntm du nord"
- // }
+
+async function recommandation(context) {
+  let query = baseQuery;
+  const binds = {};
+
+
+  if (context.titre) {
+    mots = context.titre.split(" ");
+
+    for (var i = 0; i < mots.length; i++) {
+      binds.titre = mots[i];
+      console.log('binds.titre------' +mots[i]);
+      if(mots.length == 1 ){
+        query += `\n where (D.Mot ='`+mots[i]+`')`
+
+      }else if ( i == mots.length - 1 ) {
+
+        query += `\n(D.Mot ='`+mots[i]+`')`
+
+      } else if (i == 0) {
+
+        query += `\nwhere (D.Mot ='`+mots[i]+`') or`
+
+
+      }else{
+        query += `\n(D.Mot ='`+mots[i]+`') or`
+
+      }
+    }
+    query += `order by 3 desc`;
+
+    console.log(query)
+
+  }
+
+  const result = await database.simpleExecute(query);
+
+  return result.rows;
+
 }
+
+//  async function recommandation(context) {
+//    //YEAH ! beautifull binding..
+//    //if (context.user) {
+//      let query = `select count(I.ID_Serie),I.ID_Serie, S.titre from intermediaire I, intermediaire I2,favoris F,Serie S
+//      where I.ID_Serie not in (select ID_Serie from favoris where ID_USER='1')
+//      AND I.ID_Mot = I2.Id_Mot
+//      AND S.ID_Serie = I.ID_Serie
+//      group by I.ID_serie,S.titre
+//      order by 1 desc`;
+//      user = context.user;
+//    const result = await database.simpleExecute(query);
+//    return result.rows;
+//  // }else {
+//  //   return "ntm du nord"
+//  // }
+// }
 
 async function find(context) {
   console.log("find");
