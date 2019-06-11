@@ -18,7 +18,7 @@ async function find(context) {
 async function getNote(context) {
 
   serie = context.serie;
-  let query = `select * from utilisateur`;
+  let query = `select * from notation`;
   console.log(query);
   const result = await database.simpleExecute(query);
   console.log(result);
