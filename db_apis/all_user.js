@@ -117,7 +117,7 @@ async function addNote(context) {
   return result.rows;
 }
 
-
+module.exports.addNote = addNote;
 module.exports.recommandation = recommandation;
 module.exports.authenticate = authenticate;
 module.exports.create = create;
