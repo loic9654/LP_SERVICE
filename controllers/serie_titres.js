@@ -24,6 +24,22 @@ async function get(req, res, next) {
   }
 }
 
+async function getID(req, res, next) {
+  try {
+    const context = {};
+    context.titre = req.params.titre;
+    //console.debug('------titre : '   + req.params.titre);
+    const rows = await series.getID(context);
+    if (req.params.titre) {
+	     res.status(200).json(rows);
+    } else {
+      res.status(200).json(rows);
+    }
+  } catch (err) {
+    next(err);
+  }
+}
+
 async function getSimilar(req, res, next) {
   try {
     const context = {};
@@ -50,3 +66,4 @@ async function getSimilar(req, res, next) {
 
 module.exports.getSimilar = getSimilar;
 module.exports.get = get;
+module.exports.getID = getID;

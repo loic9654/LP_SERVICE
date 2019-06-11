@@ -45,5 +45,14 @@ async function findSimilar(context) {
   return result.rows;
 }
 
+sync function getID(context) {
+
+  const queryID = `select ID_SERIE from serie where titre like '`+context.titre+`'`;
+  console.log(queryID);
+  const result = await database.simpleExecute(queryID);
+  return result.rows;
+}
+
 module.exports.find = find;
 module.exports.findSimilar = findSimilar;
+module.exports.getID = getID;

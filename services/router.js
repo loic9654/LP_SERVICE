@@ -16,16 +16,20 @@ router.route('/series/:titre?')
 router.route('/series/similar/:titre?')
   .get(serieTitres.getSimilar);
 
+router.route('/series/getID/:titre?').get(serieTitres.getID);
+
+
 /*todo*/
 router.route('/user/authenticate/:id_user?/:pass?').get(user.authenticate)
 // return
+
 
 router.route('/user/recommande/:id_user?').get(user.recommande)
 
 router.route('/series/getnote/:id_serie?').get(series.getNote)
 
 /*todo*/
-//router.route('/user/addnote/:id_user?').get(user.recommande)
+//router.route('/user/addnote/:id_user?').get(addNote.recommande)
 
 
 /*todo*/
