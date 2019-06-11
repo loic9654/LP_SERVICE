@@ -6,7 +6,7 @@ const baseQuery =`SELECT * from Utilisateur`;
 
  async function authenticate(context) {
    console.log("TODO auth--db_apis/user");
-   const query = `select * from utilisateur where ID_USER='`+context.user_id+`'`
+   const query = `select * from utilisateur where ID_USER='`+context.user+`'`
    const result = await database.simpleExecute(query);
    console.log(query);
    return result.rows
