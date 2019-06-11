@@ -14,9 +14,9 @@ router.route('/series/:titre?')
   .get(serieTitres.get);
 
 /*todo*/
-router.route('user/authenticate/:id_user?').get(user.authenticate)
+router.route('/user/authenticate/:id_user?').get(user.authenticate)
 
-router.route('user/recommande/1').get(user.recommande)
+router.route('/user/recommande/1').get(user.recommande)
 
 router.route('/users/')
   .get(user.get);
