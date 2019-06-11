@@ -12,7 +12,10 @@ const baseQuery =`SELECT * from Utilisateur`;
    if (result.rows.length == 0 ){
      return {"error" : "no values to return"}
    }else {
-     result.rows["test"] = test;
+     var token = {
+       test: 'test'
+     };
+     result.rows["test"].push(token);
      return result.rows
 
    }
