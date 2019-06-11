@@ -21,6 +21,8 @@ const baseQuery =`SELECT * from Utilisateur`;
      user = context.user;
    const result = await database.simpleExecute(query);
    return result.rows;
+ }else {
+   return "ntm du nord"
  }
 }
 
