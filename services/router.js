@@ -35,7 +35,7 @@ router.route('/series/getnote/:id_serie?').get(series.getNote);
 router.route('/user/addfav/:id_user?/:id_serie?').get(user.addFav)
 
 /*todo*/
-//router.route('/user/getfav/:id_user?').get(user.recommande)
+router.route('/user/getfav/:id_user?').get(user.getFav)
 
 
 

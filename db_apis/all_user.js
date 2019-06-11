@@ -125,6 +125,15 @@ async function addFav(context) {
   return {"result" : "success !"};
 }
 
+async function getFav(context) {
+
+  const queryID = `select * from favoris where ID_USER =('`+context.user+`')`;
+  console.log(queryID);
+  const result = await database.simpleExecute(queryID);
+  return {"result" : "success !"};
+}
+
+module.exports.getFav = getFav;
 module.exports.addFav = addFav;
 module.exports.addNote = addNote;
 module.exports.recommandation = recommandation;
