@@ -21,13 +21,13 @@ async function find(context) {
       binds.titre = mots[i];
       console.log('binds.titre------' +mots[i]);
       if(mots.length == 1 ){
-        query += `\n where (D.Mot ='`+mots[i]+`')`
+        query += `\n where (D.Mot like '`+mots[i]+`')`
       }else if ( i == mots.length - 1 ) {
         query += `\n(D.Mot ='`+mots[i]+`')`
       } else if (i == 0) {
-        query += `\nwhere (D.Mot ='`+mots[i]+`') or`
+        query += `\nwhere (D.Mot like '`+mots[i]+`') or`
       }else{
-        query += `\n(D.Mot ='`+mots[i]+`') or`
+        query += `\n(D.Mot like '`+mots[i]+`') or`
       }
     }
     query += `order by 3 desc`;
