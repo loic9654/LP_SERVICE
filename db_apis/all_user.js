@@ -24,7 +24,7 @@ async function authenticate(context) {
 
       //tokenarray.push({context})
       result.rows.push(token);
-      tokenarray.user = {`"`+user+`"`: token}
+      tokenarray.user = {user: token};
       return result.rows
   }else {
      return {"error" : "wrong password m8 ! ;)"}
