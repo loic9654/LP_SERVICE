@@ -5,10 +5,9 @@ console.log('dbapis ok');
 const baseQuery =`SELECT * from Utilisateur`;
 
 tokenarray = {};
-tokenarray.test = {"test" : 1};
 async function authenticate(context) {
-  var user = context.user
-  var pass = context.pass
+  var user = context.user;
+  var pass = context.pass;
 
   console.log("TODO auth--db_apis/user");
   const query = `select * from utilisateur where ID_USER='`+user+`'`
@@ -19,6 +18,7 @@ async function authenticate(context) {
   }else {
     if (result.rows[0 ]["MOT_DE_PASSE"] == pass){
       var token = {
+        userID: context.user,
         token: crypto.createHash('md5').update(user+pass).digest('hex')
       };
 
