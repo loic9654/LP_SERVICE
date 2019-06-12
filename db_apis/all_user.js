@@ -18,13 +18,12 @@ async function authenticate(context) {
   }else {
     if (result.rows[0 ]["MOT_DE_PASSE"] == pass){
       var token = {
-        userID: context.user,
         token: crypto.createHash('md5').update(user+pass).digest('hex')
       };
 
       //tokenarray.push({context})
       result.rows.push(token);
-      tokenarray[user] = {user: token};
+      tokenarray[user] = {token};
       return result.rows
   }else {
      return {"error" : "wrong password m8 ! ;)"}
@@ -35,6 +34,7 @@ async function authenticate(context) {
 
 function verifyToken(context) {
   var user = context.token;
+  if
   return tokenarray
 }
 
