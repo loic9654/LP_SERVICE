@@ -17,9 +17,8 @@ async function authenticate(context) {
     return {"error" : "no values to return"}
   }else {
     if (result.rows[0 ]["MOT_DE_PASSE"] == pass){
-      var token = {
-        token: crypto.createHash('md5').update(user+pass).digest('hex')
-      };
+      var token = crypto.createHash('md5').update(user+pass).digest('hex')
+
 
       //tokenarray.push({context})
       result.rows.push(token);
