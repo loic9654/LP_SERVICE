@@ -51,6 +51,22 @@ async function getComment(req, res, next) {
   }
 }
 
+async function getSerie(req, res, next) {
+  try {
+    const context = {};
+    context.serie = req.params.id_serie;
+    //console.debug('------titre : '   + req.params.titre);
+    const rows = await series.getSerie(context);
+    if (req.params.titre) {
+	     res.status(200).json(rows);
+    } else {
+      res.status(200).json(rows);
+    }
+  } catch (err) {
+    next(err);
+  }
+}
+
 module.exports.getComment = getComment;
 module.exports.getNote = getNote;
 module.exports.get = get;

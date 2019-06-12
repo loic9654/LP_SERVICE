@@ -33,6 +33,14 @@ async function getComment(context) {
   return result.rows;
 }
 
+async function getSerie(context) {
+
+  const queryID = `select Titre from serie where ID_SERIE='`+context.serie+`'`;
+  console.log(queryID);
+  const result = await database.simpleExecute(queryID);
+  return result.rows;
+}
+
 
 module.exports.getComment = getComment;
 module.exports.find = find;
