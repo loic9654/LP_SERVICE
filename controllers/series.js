@@ -57,7 +57,7 @@ async function getSerie(req, res, next) {
     context.serie = req.params.id_serie;
     //console.debug('------titre : '   + req.params.titre);
     const rows = await series.getSerie(context);
-    if (req.params.titre) {
+    if (req.params.id_serie) {
 	     res.status(200).json(rows);
     } else {
       res.status(200).json(rows);
