@@ -20,8 +20,8 @@ async function authenticate(context) {
       //tokenarray.push({context})
       result.rows.push(token);
       var token = crypto.createHash('md5').update(user+pass).digest('hex');
-      tokenarray[user] = {"token": token };
-      return result.rows
+      tokenarray[user] = {"token": this.token };
+      return result.rows;
   }else {
      return {"error" : "wrong password m8 ! ;)"}
   }
@@ -31,7 +31,6 @@ async function authenticate(context) {
 
 function verifyToken(context) {
   var user = context.token;
-  if
   return tokenarray
 }
 
