@@ -22,7 +22,7 @@ tokenarray = {}
          token: crypto.createHash('md5').update(user+pass).digest('hex')
        };
 
-       tokenarray.push({context.user, context.pass})
+       tokenarray.push({context})
        result.rows.push(token);
        return result.rows
    }else {
