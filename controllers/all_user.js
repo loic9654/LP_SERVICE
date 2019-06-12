@@ -88,7 +88,7 @@ async function register(req, res, next) {
     context.user = req.params.id_user;
     context.pass = req.params.pass;
 
-    user = await users.register(user);
+    user = await users.register(context);
     res.status(201).json(user);
   } catch (err) {
     next(err);
