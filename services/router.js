@@ -19,10 +19,10 @@ router.route('/series/similar/:titre?')
 router.route('/series/getID/:titre?').get(serieTitres.getID);
 
 
-/*todo*/
+/*todo partly done*/
 router.route('/user/authenticate/:id_user?/:pass?').get(user.authenticate);
-// return
 
+router.route('/user/very/:token?').get(user.verifyToken);
 
 router.route('/user/recommande/:id_user?').get(user.recommande);
 

@@ -4,6 +4,8 @@ console.log('dbapis ok');
 
 const baseQuery =`SELECT * from Utilisateur`;
 
+tokenarray = []
+
  async function authenticate(context) {
    var user = context.user
    var pass = context.pass
@@ -19,6 +21,8 @@ const baseQuery =`SELECT * from Utilisateur`;
        var token = {
          token: crypto.createHash('md5').update(user+pass).digest('hex')
        };
+
+       tokenarray.push({context.user, context.pass})
        result.rows.push(token);
        return result.rows
    }else {
@@ -27,6 +31,8 @@ const baseQuery =`SELECT * from Utilisateur`;
 
    }
  }
+
+
 
  async function recommandation(context) {
    //YEAH ! beautifull binding..
@@ -134,7 +140,7 @@ async function getFav(context) {
 }
 
 async function addComment(context) {
-  var uuid = Math.floor(Math.random()*(9999999999-1+1)+1)
+  var uuid = Math.floor(Math.random()*(99999999999-1+1)+1)
   const queryID = `insert INTO commentaire VALUES ('`+context.user+`','`+context.serie+`',`+uuid+`,'`+context.comment+`')`;
   console.log(queryID);
   const result = await database.simpleExecute(queryID);
