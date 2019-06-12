@@ -4,7 +4,7 @@ console.log('dbapis ok');
 
 const baseQuery =`SELECT * from Utilisateur`;
 
-tokenarray = {};
+tokenarray = [];
 async function authenticate(context) {
   var user = context.user;
   var pass = context.pass;
@@ -23,7 +23,7 @@ async function authenticate(context) {
 
       //tokenarray.push({context})
       result.rows.push(token);
-      tokenarray[user] =  token;
+      tokenarray.push(token);
       return result.rows;
   }else {
      return {"error" : "wrong password m8 ! ;)"}
@@ -42,7 +42,7 @@ function verifyToken(context) {
       //   return {"success" : "True"}
       // }
   }
-  return tokenarray
+  return tokenarray[0]
 }
 
 
