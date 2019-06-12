@@ -36,6 +36,18 @@ async function authenticate(req, res, next) {
   }
 }
 
+async function verifyToken(req, res, next) {
+  try {
+    const context = {};
+    context.user = req.params.id_user;
+    const resp = await users.verifyToken(context);
+    res.status(200).json(resp);
+  } catch (err) {
+    next(err);
+  }
+}
+
+
 async function get(req, res, next) {
   console.log("get all user");
   try {
@@ -159,7 +171,7 @@ async function addComment(req, res, next) {
   }
 }
 
-
+module.exports.verifyToken = verifyToken;
 module.exports.addComment = addComment;
 module.exports.addFav = addFav;
 module.exports.getFav = getFav;

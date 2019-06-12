@@ -6,31 +6,38 @@ const baseQuery =`SELECT * from Utilisateur`;
 
 tokenarray = {};
 
- async function authenticate(context) {
-   var user = context.user
-   var pass = context.pass
+async function authenticate(context) {
+  var user = context.user
+  var pass = context.pass
 
-   console.log("TODO auth--db_apis/user");
-   const query = `select * from utilisateur where ID_USER='`+user+`'`
-   const result = await database.simpleExecute(query);
-   console.log(query);
-   if (result.rows.length == 0 ){
-     return {"error" : "no values to return"}
-   }else {
-     if (result.rows[0 ]["MOT_DE_PASSE"] == pass){
-       var token = {
-         token: crypto.createHash('md5').update(user+pass).digest('hex')
-       };
+  console.log("TODO auth--db_apis/user");
+  const query = `select * from utilisateur where ID_USER='`+user+`'`
+  const result = await database.simpleExecute(query);
+  console.log(query);
+  if (result.rows.length == 0 ){
+    return {"error" : "no values to return"}
+  }else {
+    if (result.rows[0 ]["MOT_DE_PASSE"] == pass){
+      var token = {
+        token: crypto.createHash('md5').update(user+pass).digest('hex')
+      };
 
-       //tokenarray.push({context})
-       result.rows.push(token);
-       return result.rows
-   }else {
-      return {"error" : "wrong password m8 ! ;)"}
-   }
+      //tokenarray.push({context})
+      result.rows.push(token);
+      return result.rows
+  }else {
+     return {"error" : "wrong password m8 ! ;)"}
+  }
 
-   }
- }
+  }
+}
+
+async function verifyToken(context) {
+  var user = context.token
+  return {"hola" ! : "not yes implemented"}
+
+  }
+}
 
 
 
@@ -147,6 +154,7 @@ async function addComment(context) {
   return {"result" : "success !"};
 }
 
+module.exports.verifyToken = verifyToken;
 module.exports.addComment = addComment;
 module.exports.getFav = getFav;
 module.exports.addFav = addFav;
