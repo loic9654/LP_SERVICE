@@ -35,9 +35,9 @@ async function getComment(context) {
 
 async function getSerie(context) {
 
-  const queryID = `select titre from serie where ID_SERIE=1`;
-  console.log(queryID);
-  const result = await database.simpleExecute(queryID);
+  const querySerie = `select titre from serie where ID_SERIE=1`;
+  console.log(querySerie);
+  const result = await database.simpleExecute(querySerie);
   return result.rows;
 }
 
