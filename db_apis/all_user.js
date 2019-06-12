@@ -35,7 +35,7 @@ async function authenticate(context) {
 function verifyToken(context) {
   var passedtok = context.token;
   for (const tok in tokenarray) {
-      console.log(tok[0]);
+      console.log(tok[1].["token"]);
       // if (tok.token.token == passedtok){
       //   return {"success" : "True"}
       // }
@@ -159,7 +159,9 @@ async function addComment(context) {
 }
 
 async function register(context) {
-
+  if (context.user == null || context.pass == null ) {
+      return {"result" : "failed ! missing parameter"};
+  }
   const queryID = `insert INTO utilisateur VALUES ('`+context.user+`','`+context.pass+`',sysdate,1)`;
   console.log(queryID);
   const result = await database.simpleExecute(queryID);
