@@ -33,10 +33,8 @@ async function authenticate(context) {
 }
 
 function verifyToken(context) {
-  var user = context.token
-  return {"hola !" : "not yes implemented"}
-
-  }
+  var user = context.token;
+  return {"hola !" : "not yes implemented"};
 }
 
 
