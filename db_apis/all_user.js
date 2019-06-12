@@ -152,7 +152,16 @@ async function addComment(context) {
   return {"result" : "success !"};
 }
 
+async function register(context) {
+
+  const queryID = `insert INTO utilisateur VALUES ('`+context.user+`','`+context.pass+`',sysdate,1)`;
+  console.log(queryID);
+  const result = await database.simpleExecute(queryID);
+  return {"result" : "success !, user added"};
+}
+
 module.exports.verifyToken = verifyToken;
+module.exports.register = register;
 module.exports.addComment = addComment;
 module.exports.getFav = getFav;
 module.exports.addFav = addFav;

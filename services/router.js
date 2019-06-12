@@ -22,7 +22,7 @@ router.route('/series/getID/:titre?').get(serieTitres.getID);
 /*todo partly done*/
 router.route('/user/authenticate/:id_user?/:pass?').get(user.authenticate);
 
-router.route('/user/very/:token?').get(user.verifyToken);
+router.route('/user/verify/:token?').get(user.verifyToken);
 
 router.route('/user/recommande/:id_user?').get(user.recommande);
 
@@ -46,7 +46,7 @@ router.route('/serie/getcomment/:id_serie?').get(series.getComment)
 
 router.route('/users/').get(user.get);
 
-router.route('/users/register').post(user.post);
+router.route('/users/register/:id_user?/:pass?').get(user.register);
 
 
 router.route('/users/modify/password').post(user.modifyPass);

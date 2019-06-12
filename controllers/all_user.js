@@ -80,13 +80,15 @@ function ChangeUsePassFromReq(req) {
   };
 }
 
-async function post(req, res, next) {
+async function register(req, res, next) {
   console.log('user posted');
 
   try {
-    let user = getUseFromReq(req);
+    const context = {}
+    context.user = req.params.id_user;
+    context.pass = req.params.pass;
 
-    user = await users.create(user);
+    user = await users.register(user);
     res.status(201).json(user);
   } catch (err) {
     next(err);
@@ -171,6 +173,7 @@ async function addComment(req, res, next) {
   }
 }
 
+
 module.exports.verifyToken = verifyToken;
 module.exports.addComment = addComment;
 module.exports.addFav = addFav;
@@ -179,5 +182,5 @@ module.exports.addNote = addNote;
 module.exports.recommande = recommande;
 module.exports.authenticate = authenticate;
 module.exports.modifyPass = modifyPass;
-module.exports.post = post;
+module.exports.register = register;
 module.exports.get = get;
