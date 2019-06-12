@@ -64,6 +64,7 @@ async function getSerie(req, res, next) {
   }
 }
 
+module.exports.getSerie = getSerie;
 module.exports.getComment = getComment;
 module.exports.getNote = getNote;
 module.exports.get = get;
