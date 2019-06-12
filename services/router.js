@@ -20,7 +20,7 @@ router.route('/series/getID/:titre?').get(serieTitres.getID);
 
 
 /*todo partly done*/
-router.route('/user/authenticate/:id_user?/:pass?').get(user.authenticate);
+router.route('/user/authentificate/:id_user?/:pass?').get(user.authenticate);
 
 router.route('/user/verify/:token?').get(user.verifyToken);
 
