@@ -5,7 +5,7 @@ console.log('dbapis ok');
 const baseQuery =`SELECT * from Utilisateur`;
 
 tokenarray = {};
-tokenarray.push{"test",1}
+tokenarray.test = {"test",1};
 async function authenticate(context) {
   var user = context.user
   var pass = context.pass
