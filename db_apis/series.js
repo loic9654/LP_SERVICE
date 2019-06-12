@@ -42,6 +42,7 @@ async function getSerie(context) {
 }
 
 
+module.exports.getSerie = getSerie;
 module.exports.getComment = getComment;
 module.exports.find = find;
 module.exports.getNote = getNote;
