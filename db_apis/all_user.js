@@ -36,7 +36,7 @@ function verifyToken(context) {
   var passedtok = context.token;
   for (const tok in tokenarray) {
       for (const truc in tok) {
-      console.log(truc);
+      console.log(truc.token);
     }
       // if (tok.token.token == passedtok){
       //   return {"success" : "True"}
