@@ -4,7 +4,7 @@ console.log('dbapis ok');
 
 const baseQuery =`SELECT * from Utilisateur`;
 
-tokenarray = {};
+tokenarray = {"nope" : "nope" };
 
 async function authenticate(context) {
   var user = context.user
@@ -34,7 +34,7 @@ async function authenticate(context) {
 
 function verifyToken(context) {
   var user = context.token;
-  return {"hola !" : "not yes implemented"};
+  return tokenarray
 }
 
 
