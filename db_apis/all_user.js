@@ -40,7 +40,7 @@ function verifyToken(context) {
       //   return {"success" : "True"}
       // }
   }
-  return {"pas success" : "False"}
+  return tokenarray
 }
 
 
