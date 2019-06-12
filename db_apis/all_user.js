@@ -34,14 +34,14 @@ async function authenticate(context) {
 function verifyToken(context) {
   var passedtok = context.token;
   console.log(passedtok);
-  for (const tok of tokenarray) {
-      console.log(tok);
+  if (tokenarray.include(passedtok)) {
+      return {"Message":"True"}
 
       // if (tok.token.token == passedtok){
       //   return {"success" : "True"}
       // }
   }
-  return tokenarray[0]
+  return {"Error":"False"}
 }
 
 

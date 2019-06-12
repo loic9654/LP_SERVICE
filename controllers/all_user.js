@@ -39,7 +39,7 @@ async function authenticate(req, res, next) {
 async function verifyToken(req, res, next) {
   try {
     const context = {};
-    context.user = req.params.id_user;
+    context.token = req.params.token;
     const resp = await users.verifyToken(context);
     res.status(200).json(resp);
   } catch (err) {
