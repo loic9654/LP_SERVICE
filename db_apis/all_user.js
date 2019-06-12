@@ -35,9 +35,8 @@ async function authenticate(context) {
 function verifyToken(context) {
   var passedtok = context.token;
   for (const tok in tokenarray) {
-      for (const truc in tok) {
-      console.log(truc.token);
-    }
+      console.log(tok);
+
       // if (tok.token.token == passedtok){
       //   return {"success" : "True"}
       // }
