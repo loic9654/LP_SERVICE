@@ -32,7 +32,7 @@ async function authenticate(context) {
   }
 }
 
-async function verifyToken(context) {
+function verifyToken(context) {
   var user = context.token
   return {"hola !" : "not yes implemented"}
 
