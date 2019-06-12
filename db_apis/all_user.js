@@ -34,7 +34,7 @@ async function authenticate(context) {
 
 function verifyToken(context) {
   var passedtok = context.token;
-  for (const tok of tokenarray) {
+  for (const tok in tokenarray) {
       if (tok.token.token == passedtok){
         return {"success" : "True"}
       }
