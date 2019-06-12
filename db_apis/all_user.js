@@ -34,7 +34,7 @@ async function authenticate(context) {
 
 async function verifyToken(context) {
   var user = context.token
-  return {"hola" ! : "not yes implemented"}
+  return {"hola !" : "not yes implemented"}
 
   }
 }
