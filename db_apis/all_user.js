@@ -19,7 +19,8 @@ async function authenticate(context) {
     if (result.rows[0 ]["MOT_DE_PASSE"] == pass){
       //tokenarray.push({context})
       result.rows.push(token);
-      tokenarray[user] = {"token": crypto.createHash('md5').update(user+pass).digest('hex')};
+      var token = crypto.createHash('md5').update(user+pass).digest('hex');
+      tokenarray[user] = {"token": token };
       return result.rows
   }else {
      return {"error" : "wrong password m8 ! ;)"}
