@@ -35,8 +35,11 @@ function verifyToken(context) {
   var passedtok = context.token;
   console.log(passedtok);
   console.log(tokenarray);
-  if (passedtok in tokenarray) {
-      return {"Message":"True"}
+  for (var i = 0; i < tokenarray.length; i++) {
+    if (passedtok == tokenarray[i]) {
+        return {"Message":"True"}
+
+  }
 
       // if (tok.token.token == passedtok){
       //   return {"success" : "True"}
