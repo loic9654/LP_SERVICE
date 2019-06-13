@@ -189,6 +189,7 @@ module.exports.verifyToken = verifyToken;
 module.exports.register = register;
 module.exports.addComment = addComment;
 module.exports.getFav = getFav;
+module.exports.delFav = delFav;
 module.exports.addFav = addFav;
 module.exports.addNote = addNote;
 module.exports.recommandation = recommandation;

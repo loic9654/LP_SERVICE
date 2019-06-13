@@ -210,6 +210,7 @@ module.exports.verifyToken = verifyToken;
 module.exports.addComment = addComment;
 module.exports.addFav = addFav;
 module.exports.getFav = getFav;
+module.exports.delFav = delFav;
 module.exports.addNote = addNote;
 module.exports.recommande = recommande;
 module.exports.authenticate = authenticate;
