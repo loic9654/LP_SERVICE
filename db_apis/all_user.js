@@ -145,7 +145,7 @@ async function addFav(context) {
 
 async function delFav(context) {
 
-  const queryID = `delete FROM favoris where ID_USER='`+context.user+`' and ID_SERIE='`+context.serie+`')`;
+  const queryID = `delete FROM favoris where ID_USER='`+context.user+`' and ID_SERIE='`+context.serie+`'`;
   console.log(queryID);
   const result = await database.simpleExecute(queryID);
   return {"result" : "success, element deleted"};
