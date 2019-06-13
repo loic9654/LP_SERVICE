@@ -169,6 +169,14 @@ async function register(context) {
   return {"result" : "success !, user added"};
 }
 
+async function getUserComment(context) {
+  const queryUSER = `select * from commentaire where ID_USER='`+context.user+`'`;
+  console.log(queryUSER);
+  const result = await database.simpleExecute(queryUSER);
+  return result.rows;
+}
+
+module.exports.getUserComment = getUserComment;
 module.exports.verifyToken = verifyToken;
 module.exports.register = register;
 module.exports.addComment = addComment;

@@ -42,6 +42,7 @@ router.route('/user/addcomment/:id_user?/:id_serie?/:comment_value?').get(user.a
 
 router.route('/serie/getcomment/:id_serie?').get(series.getComment)
 
+router.route('/user/getusercomment/:id_user?').get(user.getUserComment)
 
 
 router.route('/users/').get(user.get);
