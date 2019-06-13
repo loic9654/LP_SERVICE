@@ -145,7 +145,7 @@ async function getFav(req, res, next) {
   try {
     const context = {};
     context.user = req.params.id_user;
-    if (req.params.id_serie) {
+    if (req.params.id_user) {
       const rows = await users.getFav(context);
       res.status(200).json(rows);
     } else {
