@@ -146,7 +146,7 @@ async function delFav(req, res, next) {
     const context = {};
     context.serie = req.params.id_serie;
     context.user = req.params.id_user;
-    if (req.params.id_serie && req.params.id_user) {
+    if (req.params.id_serie) {
       const rows = await users.delFav(context);
       res.status(200).json(rows);
     } else {
