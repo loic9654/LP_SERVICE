@@ -9,14 +9,14 @@ async function authenticate(context) {
   var user = context.user;
   var pass = context.pass;
 
-  console.log(user);
+  console.log("TODO auth--db_apis/user");
   const query = `select * from utilisateur where ID_USER='`+user+`'`
   const result = await database.simpleExecute(query);
   console.log(query);
-  //if (result.rows.length == 0 ){
-  //  return {"error" : "no values to return"}
-  //}else {
-  if (result.rows[0]["MOT_DE_PASSE"] == pass){
+  if (result.rows.length == 0 ){
+    return {"error" : "no values to return"}
+  }else {
+    if (result.rows[0 ]["MOT_DE_PASSE"] == pass){
       var token = crypto.createHash('md5').update(user+pass).digest('hex')
 
 
@@ -28,7 +28,7 @@ async function authenticate(context) {
      return {"error" : "wrong password m8 ! ;)"}
   }
 
-  //}
+  }
 }
 
 function verifyToken(context) {
