@@ -178,7 +178,7 @@ async function getUserComment(req, res, next) {
     const context = {};
     context.user = req.params.id_user;
     if (req.params.id_user) {
-      const rows = await series.getUserComment(context);
+      const rows = await users.getUserComment(context);
       res.status(200).json(rows);
     } else {
       res.status(404);
