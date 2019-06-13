@@ -143,12 +143,20 @@ async function addFav(context) {
   return {"result" : "success !"};
 }
 
+async function delFav(context) {
+
+  const queryID = `delete FROM favoris where ID_USER='`+context.user+`' and ID_SERIE='`+context.serie+`')`;
+  console.log(queryID);
+  const result = await database.simpleExecute(queryID);
+  return {"result" : "success, element deleted"};
+}
+
 async function getFav(context) {
 
   const queryID = `select * from favoris where ID_USER =('`+context.user+`')`;
   console.log(queryID);
   const result = await database.simpleExecute(queryID);
-  return result;
+  return result.rows;
 }
 
 async function addComment(context) {

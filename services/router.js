@@ -37,6 +37,8 @@ router.route('/user/addfav/:id_user?/:id_serie?').get(user.addFav)
 
 router.route('/user/getfav/:id_user?').get(user.getFav)
 
+router.route('/user/delfav/:id_user?/:id_serie?').get(user.delFav)
+
 router.route('/user/addcomment/:id_user?/:id_serie?/:comment_value?').get(user.addComment)
 
 router.route('/serie/getcomment/:id_serie?').get(series.getComment)

@@ -141,6 +141,22 @@ async function addFav(req, res, next) {
   }
 }
 
+async function delFav(req, res, next) {
+  try {
+    const context = {};
+    context.serie = req.params.id_serie;
+    context.user = req.params.id_user;
+    if (req.params.id_serie && req.params.id_user) {
+      const rows = await users.delFav(context);
+      res.status(200).json(rows);
+    } else {
+      res.status(404);
+    }
+  } catch (err) {
+    next(err);
+  }
+}
+
 async function getFav(req, res, next) {
   try {
     const context = {};
@@ -155,6 +171,7 @@ async function getFav(req, res, next) {
     next(err);
   }
 }
+
 
 async function addComment(req, res, next) {
   try {
